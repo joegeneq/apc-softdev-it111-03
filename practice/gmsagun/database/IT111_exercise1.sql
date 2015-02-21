@@ -29,11 +29,11 @@ CREATE TABLE IF NOT EXISTS `IT111_exercise1`.`province` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `province_code` VARCHAR(32) NULL,
   `province_description` VARCHAR(32) NULL,
-  `region_id1` INT NOT NULL,
-  PRIMARY KEY (`id`, `region_id1`),
-  INDEX `fk_province_region_idx` (`region_id1` ASC),
+  `region_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `region_id`),
+  INDEX `fk_province_region_idx` (`region_id` ASC),
   CONSTRAINT `fk_province_region`
-    FOREIGN KEY (`region_id1`)
+    FOREIGN KEY (`region_id`)
     REFERENCES `IT111_exercise1`.`region` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
