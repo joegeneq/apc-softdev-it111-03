@@ -18,7 +18,6 @@ use app\models\Region;
 
     <?= $form->field($model, 'province_description')->textInput(['maxlength' => 32]) ?>
 
-    <?= $form->field($model, 'region_id')->textInput() ?>
 	<?= $form->field($model, 'region_id')-> dropDownList(
 			ArrayHelper::map(Region::find()->all(),'id','region_description'),
 			['prompt'=>'Select Region']
