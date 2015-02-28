@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2015 at 04:07 AM
+-- Generation Time: Feb 28, 2015 at 04:16 AM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -38,6 +38,13 @@ CREATE TABLE IF NOT EXISTS `myaddress` (
   `cellphone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `myaddress`
+--
+
+INSERT INTO `myaddress` (`id`, `firstname`, `middlename`, `lastname`, `gender`, `created_at`, `home_address`, `landline`, `cellphone`) VALUES
+(1, 'angelo', 'g', 'sia', 'm', '2015-02-28 03:15:01', 'balingasa', '3637175', '09065271990');
 
 -- --------------------------------------------------------
 
