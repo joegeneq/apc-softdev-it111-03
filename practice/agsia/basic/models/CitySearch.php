@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\City;
+use app\models\Province;
 
 /**
  * CitySearch represents the model behind the search form about `app\models\City`.
@@ -19,7 +19,11 @@ class CitySearch extends City
     {
         return [
             [['id',], 'integer'],
+<<<<<<< HEAD
+            [['city_code', 'province_description', 'province_id'], 'safe'],
+=======
             [['city_code', 'city_description', 'province_id'], 'safe'],
+>>>>>>> 8df53a651c1914bf9baed69a72817ceedfa02979
         ];
     }
 
