@@ -18,8 +18,7 @@ use app\models\MyAddress;
 
 	<?= $form->field($model, 'myaddress_id')-> dropDownList(
 		ArrayHelper::map(MyAddress::find()->all(),'id','lastname'),
-		['prompt'=>'Select Last Name']
-	) ?>
+		['prompt'=>'Select Last Name'])->label('Last Name') ?>
 
     <?= $form->field($model, 'author')->textInput(['maxlength' => 255]) ?>
 
