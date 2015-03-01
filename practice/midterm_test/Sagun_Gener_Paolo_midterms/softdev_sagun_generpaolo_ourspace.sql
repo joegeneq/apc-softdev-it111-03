@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2015 at 04:32 AM
+-- Generation Time: Mar 01, 2015 at 10:18 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -37,7 +37,14 @@ CREATE TABLE IF NOT EXISTS `myaddress` (
   `landline` varchar(20) NOT NULL,
   `cellphone` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `myaddress`
+--
+
+INSERT INTO `myaddress` (`id`, `firstname`, `middlename`, `lastname`, `gender`, `created_at`, `homeaddress`, `landline`, `cellphone`) VALUES
+(1, 'Gener Paolo', 'M', 'Sagun', 'M', '2015-03-01 09:15:42', 'S-23 Tenement BLDG. Taguig City', '1234567', '09123456789');
 
 -- --------------------------------------------------------
 
@@ -53,7 +60,14 @@ CREATE TABLE IF NOT EXISTS `mycomment` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `mycomment_ibfk_1` (`myaddress_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `mycomment`
+--
+
+INSERT INTO `mycomment` (`id`, `myaddress_id`, `author`, `body`, `created_at`) VALUES
+(1, 1, 'Oath Thor', 'Sample input Sample input Sample input Sample input Sample input Sample input Sample input Sample input Sample input Sample input Sample input Sample input Sample input Sample input Sample input Sample input Sample input Sample input ', '2015-03-01 09:17:05');
 
 --
 -- Constraints for dumped tables
