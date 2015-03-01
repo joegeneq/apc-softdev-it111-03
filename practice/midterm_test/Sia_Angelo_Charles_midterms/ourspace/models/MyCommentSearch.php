@@ -18,8 +18,8 @@ class MyCommentSearch extends MyComment
     public function rules()
     {
         return [
-            [['id', 'myaddress_id'], 'integer'],
-            [['author', 'body', 'created_at'], 'safe'],
+            [['id',], 'integer'],
+            [['author', 'body', 'created_at','myaddress_id'], 'safe'],
         ];
     }
 
@@ -46,7 +46,7 @@ class MyCommentSearch extends MyComment
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-
+		
         $this->load($params);
 
         if (!$this->validate()) {
@@ -54,15 +54,19 @@ class MyCommentSearch extends MyComment
             // $query->where('0=1');
             return $dataProvider;
         }
-
+		//joining the database
+		$query->joinWith('myaddress');
+		
         $query->andFilterWhere([
             'id' => $this->id,
-            'myaddress_id' => $this->myaddress_id,
+            //'myaddress_id' => $this->myaddress_id,
             'created_at' => $this->created_at,
         ]);
 
         $query->andFilterWhere(['like', 'author', $this->author])
-            ->andFilterWhere(['like', 'body', $this->body]);
+            ->andFilterWhere(['like', 'body', $this->body])
+			//adding the lastname search function
+			->andFilterWhere(['like', 'myaddress.lastname', $this->myaddress_id]);
 
         return $dataProvider;
     }
