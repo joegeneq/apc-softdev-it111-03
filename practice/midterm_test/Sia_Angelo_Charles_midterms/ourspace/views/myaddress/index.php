@@ -26,10 +26,22 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'firstname',
-            'middlename',
-            'lastname',
-            'gender',
+			[
+			'attribute'=>'firstname',
+			'label'=>'First Name',
+			],
+			[
+			'attribute'=>'middlename',
+			'label'=>'Middle Name',
+			],
+			[
+			'attribute'=>'lastname',
+			'label'=>'Last Name',
+			],
+			[
+			'attribute'=>'gender',
+			'label'=>'Male/Female',
+			],
             // 'created_at',
             // 'home_address',
             // 'landline',
