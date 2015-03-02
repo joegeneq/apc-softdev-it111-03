@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `myaddress` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `middlename` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `myaddress` (
   `landline` varchar(20) NOT NULL,
   `cellphone` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `myaddress`
