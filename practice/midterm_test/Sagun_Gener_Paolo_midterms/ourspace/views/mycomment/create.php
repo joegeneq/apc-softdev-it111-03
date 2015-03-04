@@ -2,15 +2,15 @@
 
 use yii\helpers\Html;
 
+
 /* @var $this yii\web\View */
 /* @var $model app\models\Mycomment */
 
-$this->title = 'Update Mycomment: ' . ' ' . $model->lastname;
+$this->title = 'Create Mycomment';
 $this->params['breadcrumbs'][] = ['label' => 'Mycomments', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="mycomment-update">
+<div class="mycomment-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

@@ -12,19 +12,17 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id')->textInput() ?>
+    <?= $form->field($model, 'firstname')->textInput(['maxlength' => 30])-> label('First Name') ?>
 
-    <?= $form->field($model, 'firstname')->textInput(['maxlength' => 30]) ?>
+    <?= $form->field($model, 'middlename')->textInput(['maxlength' => 30])-> label('Middle Name') ?>
 
-    <?= $form->field($model, 'middlename')->textInput(['maxlength' => 30]) ?>
+    <?= $form->field($model, 'lastname')->textInput(['maxlength' => 30])-> label('Last Name')  ?>
 
-    <?= $form->field($model, 'lastname')->textInput(['maxlength' => 30]) ?>
-
-    <?= $form->field($model, 'gender')->textInput(['maxlength' => 1]) ?>
+    <?= $form->field($model, 'gender')->textInput(['maxlength' => 1])-> label('M/F')  ?>
 
     <?= $form->field($model, 'created_at')->textInput() ?>
 
-    <?= $form->field($model, 'home_address')->textInput(['maxlength' => 50]) ?>
+    <?= $form->field($model, 'homeaddress')->textInput(['maxlength' => 50]) ?>
 
     <?= $form->field($model, 'landline')->textInput(['maxlength' => 20]) ?>
 

@@ -14,13 +14,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id')->textInput() ?>
 
-    <?= $form->field($model, 'firstname')->textInput(['maxlength' => 30]) ?>
+    <?= $form->field($model, 'firstname')->textInput(['maxlength' => 30])->label('First Name') ?>
 
-    <?= $form->field($model, 'middlename')->textInput(['maxlength' => 30]) ?>
+    <?= $form->field($model, 'middlename')->textInput(['maxlength' => 30])->label('Middle Name') ?>
 
-    <?= $form->field($model, 'lastname')->textInput(['maxlength' => 30]) ?>
+    <?= $form->field($model, 'lastname')->textInput(['maxlength' => 30])->label('Last Name') ?>
 
-    <?= $form->field($model, 'gender')->textInput(['maxlength' => 1]) ?>
+    <?= $form->field($model, 'gender')->textInput(['maxlength' => 1])->label('Male/Female') ?>
 
     <?= $form->field($model, 'created_at')->textInput() ?>
 

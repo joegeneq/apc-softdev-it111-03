@@ -31,8 +31,8 @@ class Mycomment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'myaddress_id', 'author', 'body'], 'required'],
-            [['id', 'myaddress_id'], 'integer'],
+            [['myaddress_id', 'author', 'body'], 'required'],
+            [['myaddress_id'], 'integer'],
             [['body'], 'string'],
             [['created_at'], 'safe'],
             [['author'], 'string', 'max' => 255]
@@ -46,7 +46,7 @@ class Mycomment extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'myaddress_id' => 'Last Name',
+            'myaddress_id' => 'Myaddress ID',
             'author' => 'Author',
             'body' => 'Body',
             'created_at' => 'Created At',
