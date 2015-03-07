@@ -138,3 +138,11 @@ a.desc:after {
 .navbar-inverse .navbar-nav > li > a {
   color: #ACCFFF;
 }
+
+.footer{
+    height: 100px;
+    background: #2372DE url(../images/bg01.png) repeat;
+    border-color: #2372DE;
+      color: #fff;
+    text-align: center;
+}
