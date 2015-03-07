@@ -89,3 +89,52 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+.body{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11pt;
+  font-weight: 300;
+  color: #6c6c6c;
+}
+
+.navbar-modify #w0{
+    height: 150px;
+    background: #2372DE url(../images/bg01.png) repeat;
+    border-color: #2372DE;
+}
+
+.navbar-header .navbar-brand{
+    display: inline-block;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #FFF;
+    padding-top: 70px;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #FFF;
+}
+
+.menu-modify{
+    display: block;
+    padding: 0em 1.5em;
+    height: 150px;
+    letter-spacing: 0.20em;
+    line-height: 150px;
+    text-decoration: none;
+    font-size: 0.90em;
+    font-weight: 600;
+    text-transform: uppercase;
+    outline: 0;
+    padding-top: 50px;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #2A76DC;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #ACCFFF;
+}
