@@ -3,6 +3,25 @@ body {
     height: 100%;
 }
 
+#aboutImage{
+    background-image: url("http://i1284.photobucket.com/albums/a561/cbsamson16/MuntinlupaBaptistChurch_logo1_zps457d76c8.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+p.box {
+    color: blue;
+    margin: 30px;
+    line-height: 200%;
+    background-color: #ffffff;
+    border: 2px solid black;
+    opacity: 0.7;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
 .wrap {
     min-height: 100%;
     height: auto;
