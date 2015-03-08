@@ -140,9 +140,27 @@ a.desc:after {
 }
 
 .footer{
-    height: 100px;
+    height: 60px;
     background: #2372DE url(../images/bg01.png) repeat;
     border-color: #2372DE;
       color: #fff;
+    text-align: center;
+}
+
+.title {
+  margin-bottom: 3em;
+}
+
+.index-body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11pt;
+    font-weight: 300;
+    color: #6c6c6c;
+}
+
+.index-divider{
+    overflow: hidden;
+    padding: 5em 0em;
+    background: #F6F6F6;
     text-align: center;
 }
