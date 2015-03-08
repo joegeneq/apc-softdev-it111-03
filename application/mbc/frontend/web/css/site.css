@@ -3,6 +3,15 @@ body {
     height: 100%;
 }
 
+#aboutImage{
+    background-image: url("http://i1284.photobucket.com/albums/a561/cbsamson16/MuntinlupaBaptistChurch_logo1_zps457d76c8.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 700px;
+    width: 700px;
+}
+
 .wrap {
     min-height: 100%;
     height: auto;
