@@ -10,11 +10,25 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(14.4066232,121.0459747),
+    zoom:17,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 <div class="site-contact">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you. <Br> <Br>
+
+        Muntinlupa Baptist Church | Contact No: 861-59-24 | Email-Add: mbc_phil74@yahoo.com | Address: 35 Summit Circle, Bayanan, Muntinlupa City
     </p>
 
     <div class="row">
@@ -31,6 +45,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
                 </div>
             <?php ActiveForm::end(); ?>
+        </div>
+        <div id="googleMap" style="width:500px;height:380px;">
         </div>
     </div>
 

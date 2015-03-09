@@ -183,3 +183,13 @@ a.desc:after {
     background: #F6F6F6;
     text-align: center;
 }
+.col-lg-5{
+  width: 50.33333333%;
+}
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+  padding-left: 20px;
+  float: center; 
+}
+
