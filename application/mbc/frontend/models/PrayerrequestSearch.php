@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Prayerrequest;
+use app\models\PrayerRequest;
 
 /**
- * PrayerrequestSearch represents the model behind the search form about `app\models\Prayerrequest`.
+ * PrayerRequestSearch represents the model behind the search form about `app\models\PrayerRequest`.
  */
-class PrayerrequestSearch extends Prayerrequest
+class PrayerRequestSearch extends PrayerRequest
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class PrayerrequestSearch extends Prayerrequest
      */
     public function search($params)
     {
-        $query = Prayerrequest::find();
+        $query = PrayerRequest::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

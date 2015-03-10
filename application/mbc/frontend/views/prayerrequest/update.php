@@ -3,14 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Prayerrequest */
+/* @var $model app\models\PrayerRequest */
 
-$this->title = 'Update Prayerrequest: ' . ' ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Prayerrequests', 'url' => ['index']];
+$this->title = 'Update Prayer Request: ' . ' ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Prayer Requests', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="prayerrequest-update">
+<div class="prayer-request-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
