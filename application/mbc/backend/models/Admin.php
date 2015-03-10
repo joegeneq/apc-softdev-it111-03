@@ -29,8 +29,7 @@ class Admin extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
-            [['id', 'admin_filterprayer'], 'integer'],
+            [['admin_filterprayer'], 'integer'],
             [['admin_postprayer'], 'string', 'max' => 45]
         ];
     }

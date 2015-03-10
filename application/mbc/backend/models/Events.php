@@ -31,9 +31,8 @@ class Events extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
-            [['id', 'events_prioritylevel', 'no_of_attendees'], 'integer'],
             [['events_date'], 'safe'],
+            [['events_prioritylevel', 'no_of_attendees'], 'integer'],
             [['events_location'], 'string', 'max' => 100]
         ];
     }
