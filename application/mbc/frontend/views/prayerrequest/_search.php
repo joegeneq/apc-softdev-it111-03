@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PrayerrequestSearch */
+/* @var $model app\models\PrayerRequestSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="prayerrequest-search">
+<div class="prayer-request-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],

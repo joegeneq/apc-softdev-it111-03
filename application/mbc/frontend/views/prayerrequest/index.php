@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\PrayerrequestSearch */
+/* @var $searchModel app\models\PrayerRequestSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Prayerrequests';
+$this->title = 'Prayer Requests';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="prayerrequest-index">
+<div class="prayer-request-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Prayerrequest', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Prayer Request', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([

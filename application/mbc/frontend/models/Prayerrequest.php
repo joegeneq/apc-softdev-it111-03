@@ -31,8 +31,7 @@ class Prayerrequest extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
-            [['id', 'prayerrequest_code'], 'integer'],
+            [['prayerrequest_code'], 'integer'],
             [['prayerrequest_type'], 'string', 'max' => 45],
             [['prayerrequest_description'], 'string', 'max' => 100]
         ];

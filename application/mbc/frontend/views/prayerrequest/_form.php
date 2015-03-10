@@ -4,15 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Prayerrequest */
+/* @var $model app\models\PrayerRequest */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="prayerrequest-form">
+<div class="prayer-request-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'id')->textInput() ?>
 
     <?= $form->field($model, 'prayerrequest_code')->textInput() ?>
 
