@@ -4,7 +4,7 @@ body {
 }
 
 #aboutImage{
-    background-image: url("http://i1284.photobucket.com/albums/a561/cbsamson16/MuntinlupaBaptistChurch_logo1_zps457d76c8.jpg");
+    background-image: url("../../web/images/about.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -13,7 +13,7 @@ body {
 }
 
 p.box {
-    color: blue;
+    color: black;
     margin: 30px;
     line-height: 200%;
     background-color: #ffffff;
