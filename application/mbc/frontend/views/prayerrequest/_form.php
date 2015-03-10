@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'prayerrequest_code')->textInput() ?>
+     <?= $form->field($model, 'prayerrequest_code')->textInput() ?>
 
 
      <?=  $form->field($model, 'prayerrequest_type')
