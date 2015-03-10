@@ -14,7 +14,18 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'prayerrequest_code')->textInput() ?>
 
-    <?= $form->field($model, 'prayerrequest_type')->textInput(['maxlength' => 45]) ?>
+
+     <?=  $form->field($model, 'prayerrequest_type')
+        ->dropDownList(
+            $items = 
+	            [
+		            'Male'=>'Male',
+		            'Female'=>'Female'
+	            ], // Flat array ('id'=>'label')
+            ['prompt'=>'Select PrayerType']    // options
+        );
+     ?>
+
 
     <?= $form->field($model, 'prayerrequest_description')->textInput(['maxlength' => 100]) ?>
 

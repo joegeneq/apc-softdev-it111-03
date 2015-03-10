@@ -127,6 +127,7 @@ a.desc:after {
     background: #2372DE url(../images/bg01.png) repeat;
     border-color: #2372DE;
 }
+
 .navbar-header .navbar-brand{
     display: inline-block;
     font-size: 2.5em;
@@ -154,7 +155,9 @@ a.desc:after {
     padding-top: 50px;
 }
 
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus {
   color: #fff;
   background-color: #2A76DC;
 }

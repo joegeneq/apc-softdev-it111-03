@@ -23,7 +23,8 @@ use yii\bootstrap\NavBar;
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
-            ['label' => 'Events', 'url' => ['/events/view']],
+            ['label' => 'Events', 'url' => ['/events']],
+            ['label' => 'Prayer Request', 'url' => ['/prayerrequest']],
         ];
         $menuItems[] = [
             'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
