@@ -29,7 +29,39 @@
 
 <div class="index-divider">
     <p>
-        <h2>Event</h2>
+        <h1>The power of being a Prayer Warrior</h1>
+        <span class="banner">Let's pray for these people and their concerns.</span>
     </p>
 </div>
+<div class="featured-wrapper">
+        <div class="featured">
+            <div class="major">
+                <h1>Come and join us!</h1>
+                <span class="banner">Come and let us get along praising the Lord and the peak of His Holiness <br>with singing, preaching, listening and fellowship!</span> </div>
+            <div class="col-md-3"> <span class="icon icon-gift"></span>
+                <div class="title">
+                    <h2>Receive Gifts Everytime</h2>
+                </div>
+                <p>Every single moment of our lives, our God has something special prepared for us! Always be prepared to open your gifts of surprises from our Lord!</p>
+            </div>
+            <div class="col-md-3"> <span class="icon icon-glass"></span>
+                <div class="title">
+                    <h2>Something To Celebrate For</h2>
+                </div>
+                <p>Every blessing is a different reason for us to crave to celebrate, worship and serve our God more and more!</p>
+            </div>
+            <div class="col-md-3"> <span class="icon icon-music"></span>
+                <div class="title">
+                    <h2>Music For His Praises</h2>
+                </div>
+                <p>Come and let us sing. Sing on top of our voices, exalting the name of our only Father! Let's sing praises for our God!</p>
+            </div>
+            <div class="col-md-3"> <span class="icon icon-group"></span>
+                <div class="title">
+                    <h2>Fellowship With Brethrens</h2>
+                </div>
+                <p>How heart warming it is to listen to testimonies of different brethrens coming from different natures and environments. Come! We want to hear yours!</p>
+            </div>
+        </div>
+    </div>
         
