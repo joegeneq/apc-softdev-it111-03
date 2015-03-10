@@ -12,8 +12,6 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id')->textInput() ?>
-
     <?= $form->field($model, 'admin_filterprayer')->textInput() ?>
 
     <?= $form->field($model, 'admin_postprayer')->textInput(['maxlength' => 45]) ?>

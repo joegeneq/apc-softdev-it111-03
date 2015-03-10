@@ -12,8 +12,6 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id')->textInput() ?>
-
     <?= $form->field($model, 'events_date')->textInput() ?>
 
     <?= $form->field($model, 'events_location')->textInput(['maxlength' => 100]) ?>

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\MemberSearch */
+/* @var $searchModel backend\models\MemberSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Members';
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-<!--     <?= Html::a('Create Member', ['create'], ['class' => 'btn btn-success',]) ?> -->
+        <?= Html::a('Create Member', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
