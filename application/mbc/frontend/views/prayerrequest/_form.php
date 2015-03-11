@@ -19,8 +19,19 @@ use yii\widgets\ActiveForm;
         ->dropDownList(
             $items = 
 	            [
-		            'Male'=>'Male',
-		            'Female'=>'Female'
+		            'Health'=>'Health',
+		            'Career'=>'Career',
+		            'Studies'=>'Studies',
+		            'Pregnancy'=>'Pregnancy',
+		            'Family'=>'Family',
+		            'Relationship'=>'Relationship',
+		            'Travelling'=>'Travelling',
+		            'Spiritual Growth'=>'Spiritual Growth',
+		            'Evangelistic'=>'Evangelistic',
+		            'Financial'=>'Financial',
+		            'Reconciliation'=>'Reconciliation',
+		            'Others'=>'Others'
+
 	            ], // Flat array ('id'=>'label')
             ['prompt'=>'Select PrayerType']    // options
         );
