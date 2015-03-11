@@ -14,7 +14,27 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'prayerrequest_code')->textInput() ?>
 
-    <?= $form->field($model, 'prayerrequest_type')->textInput(['maxlength' => 45]) ?>
+    <?=  $form->field($model, 'prayerrequest_type')
+        ->dropDownList(
+            $items = 
+	            [
+		            'Health'=>'Health',
+		            'Career'=>'Career',
+		            'Studies'=>'Studies',
+		            'Pregnancy'=>'Pregnancy',
+		            'Family'=>'Family',
+		            'Relationship'=>'Relationship',
+		            'Travelling'=>'Travelling',
+		            'Spiritual Growth'=>'Spiritual Growth',
+		            'Evangelistic'=>'Evangelistic',
+		            'Financial'=>'Financial',
+		            'Reconciliation'=>'Reconciliation',
+		            'Others'=>'Others'
+
+	            ], // Flat array ('id'=>'label')
+            ['prompt'=>'Select PrayerType']    // options
+        );
+     ?>
 
     <?= $form->field($model, 'prayerrequest_description')->textInput(['maxlength' => 100]) ?>
 
