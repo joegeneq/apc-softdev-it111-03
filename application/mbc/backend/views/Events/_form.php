@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use dosamigos\datepicker\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Events */
@@ -12,7 +13,18 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'events_date')->textInput() ?>
+   <!-- <?= $form->field($model, 'events_date')->textInput() ?> -->
+
+	<?= $form->field($model, 'events_date')->widget(
+    DatePicker::className(), [
+        // inline too, not bad
+        'inline' => false, 
+        'clientOptions' => [
+            'autoclose' => true,
+            'startDate' => '+0d',
+            'format' => 'dd-M-yyyy'
+        ]
+	]);?>
 
     <?= $form->field($model, 'events_location')->textInput(['maxlength' => 100]) ?>
 
