@@ -12,7 +12,19 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'prayerrequest_code')->textInput() ?>
+    <?= $form->field($model, 'prayerrequest_code')
+
+    ->dropDownList(
+            $items = 
+	            [
+		            '1'=>'Public',
+		            '2'=>'Private'
+		            
+
+	            ], // Flat array ('id'=>'label')
+            ['prompt'=>'Select PrivacyType']    // options
+        );
+     ?>
 
     <?=  $form->field($model, 'prayerrequest_type')
         ->dropDownList(
