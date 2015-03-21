@@ -12,8 +12,8 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-     <?= $form->field($model, 'prayerrequest_code')
-     ->dropDownList(
+    <?= $form->field($model, 'prayerrequest_code')->textInput() 
+    ->dropDownList(
             $items = 
 	            [
 		            '1'=>'Public',
@@ -25,9 +25,7 @@ use yii\widgets\ActiveForm;
         );
      ?>
 
-
-
-     <?=  $form->field($model, 'prayerrequest_type')
+    <?=  $form->field($model, 'prayerrequest_type')
         ->dropDownList(
             $items = 
 	            [

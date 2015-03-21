@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'prayerrequest_code')
+    <?= $form->field($model, 'prayerrequest_code')->textInput() 
 
     ->dropDownList(
             $items = 
@@ -47,6 +47,7 @@ use yii\widgets\ActiveForm;
             ['prompt'=>'Select PrayerType']    // options
         );
      ?>
+
 
     <?= $form->field($model, 'prayerrequest_description')->textInput(['maxlength' => 100]) ?>
 
