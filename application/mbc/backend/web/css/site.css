@@ -116,6 +116,10 @@ a.desc:after {
   color: #6c6c6c;
 }
 
+.navbar{
+  min-height: 150px;
+}
+
 .navbar-modify #w0{
     height: 150px;
     background: #2372DE url(../images/bg01.png) repeat;

@@ -4,7 +4,7 @@
         <span class="byline">Reports Tracking System</span> 
     </div>
     <div>
-         <img src="../web/images/MBC_logo.jpg" width="304" height="310" align="left"> 
+         <img src="images/MBC_logo.jpg" width="304" height="310" align="left"> 
     </div>
     <div>
     <p>
