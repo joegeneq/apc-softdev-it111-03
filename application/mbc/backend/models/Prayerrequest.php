@@ -15,7 +15,7 @@ use Yii;
  * @property FilteredPrayerrequest[] $filteredPrayerrequests
  * @property MemberGivesPrayerrequest[] $memberGivesPrayerrequests
  */
-class Prayerrequest extends \yii\db\ActiveRecord
+class PrayerRequest extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
