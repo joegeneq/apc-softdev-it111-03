@@ -10,12 +10,14 @@ use yii\bootstrap\NavBar;
             'class' => 'navbar-inverse',
         ],
     ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-    ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+        $menuItems = [
+            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'Events', 'url' => ['/events/index']],
+            ['label' => 'Prayer Request', 'url' => ['/prayerrequest/index']],
+        ];
         $menuItems[] = [
             'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
             'url' => ['/site/logout'],
