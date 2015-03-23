@@ -6,7 +6,8 @@ $this->title = 'Muntinlupa Baptist Church Reports Tracking System';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div id="aboutImage" class="site-about">
+<div class="aboutImage" style="background-image:url('../web/images/about.jpg');">
+
     <font color="#EAC117"> <h1 align="center"><?= Html::encode($this->title) ?></h1> </font>
 
 <font color="gray" size="4px" style="font-family:Calibri">
@@ -39,6 +40,8 @@ It all started in the year 1965 when the Foreign Mission Board together with Pas
  <!--   <p>This is the About page. You may modify the following file to customize its content:</p>
 
     <code><?= __FILE__ ?></code> -->
+
+
 </div>
 </div>
 
