@@ -6,7 +6,7 @@ $this->title = 'Muntinlupa Baptist Church Reports Tracking System';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="aboutImage" style="background-image:url('../web/images/about.jpg');">
+<div class="aboutImage" style="background-image:url('images/about.jpg');">
 
     <font color="#EAC117"> <h1 align="center"><?= Html::encode($this->title) ?></h1> </font>
 
