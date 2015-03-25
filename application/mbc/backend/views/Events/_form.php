@@ -28,7 +28,21 @@ use dosamigos\datepicker\DatePicker;
 
     <?= $form->field($model, 'events_location')->textInput(['maxlength' => 100]) ?>
 
-    <?= $form->field($model, 'events_prioritylevel')->textInput() ?>
+   <!-- <?= $form->field($model, 'events_prioritylevel')->textInput() ?> -->
+
+   <?= $form->field($model, 'events_prioritylevel')->textInput() 
+
+    ->dropDownList(
+            $items = 
+	            [
+		            '1'=>'High',
+		            '2'=>'Normal'
+		            
+
+	            ], // Flat array ('id'=>'label')
+            ['prompt'=>'Select Priority Level']    // options
+        );
+     ?>
 
     <?= $form->field($model, 'no_of_attendees')->textInput() ?>
 
