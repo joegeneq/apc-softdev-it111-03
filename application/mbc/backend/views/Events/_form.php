@@ -22,7 +22,7 @@ use dosamigos\datepicker\DatePicker;
         'clientOptions' => [
             'autoclose' => true,
             'startDate' => '+0d',
-            'format' => 'dd-M-yyyy'
+            'format' => 'yy-mm-dd' 
         ]
 	]);?>
 
