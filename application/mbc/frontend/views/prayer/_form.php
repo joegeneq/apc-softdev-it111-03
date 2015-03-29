@@ -12,9 +12,41 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'prayer_code')->textInput() ?>
+    <?= $form->field($model, 'prayer_code')->textInput() 
+    ->dropDownList(
+            $items = 
+	            [
+		            '1'=>'Public',
+		            '2'=>'Private'
+		            
 
-    <?= $form->field($model, 'prayer_type')->textInput(['maxlength' => 45]) ?>
+	            ], // Flat array ('id'=>'label')
+            ['prompt'=>'Select PrivacyType']    // options
+        );
+     ?>
+
+    <?=  $form->field($model, 'prayerrequest_type')
+        ->dropDownList(
+            $items = 
+	            [
+		            'Career'=>'Career',
+	            	'Evangelistic'=>'Evangelistic',
+	            	'Family'=>'Family',
+	            	'Financial'=>'Financial',
+	            	'Health'=>'Health',
+	            	'Pregnancy'=>'Pregnancy',
+	            	'Reconciliation'=>'Reconciliation',
+	            	'Relationship'=>'Relationship',
+	            	'Spiritual Growth'=>'Spiritual Growth',
+	            	'Studies'=>'Studies',
+	            	'Travelling'=>'Travelling',
+		            'Others'=>'Others'
+
+	            ], // Flat array ('id'=>'label')
+            ['prompt'=>'Select PrayerType']    // options
+        );
+     ?>
+
 
     <?= $form->field($model, 'prayer_description')->textInput(['maxlength' => 100]) ?>
 
