@@ -44,12 +44,23 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username'], 'required'],
+            [['username','password_hash', 'email'], 'required'],
             [['status', 'created_at', 'updated_at'], 'integer'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['user_lastname', 'user_firstname', 'user_contactno', 'user_homeadd', 'user_actministry', 'user_attendance'], 'string', 'max' => 45],
-            [['user_type'], 'string', 'max' => 20]
+            [['user_type'], 'string', 'max' => 20],
+
+            ['username', 'filter', 'filter' => 'trim'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['username', 'string', 'min' => 2, 'max' => 255],
+
+            ['email', 'filter', 'filter' => 'trim'],
+            ['email', 'email'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+
+            ['password_hash', 'required'],
+            ['password_hash', 'string', 'min' => 6],
         ];
     }
 
@@ -62,7 +73,7 @@ class User extends \yii\db\ActiveRecord
             'id' => 'ID',
             'username' => 'Username',
             'auth_key' => 'Auth Key',
-            'password_hash' => 'Password Hash',
+            'password_hash' => 'Password',
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
             'status' => 'Status',
