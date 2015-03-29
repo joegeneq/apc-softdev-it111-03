@@ -20,7 +20,6 @@ use Yii;
  * @property string $user_firstname
  * @property string $user_contactno
  * @property string $user_homeadd
- * @property string $user_emailadd
  * @property string $user_actministry
  * @property string $user_attendance
  * @property string $user_type
@@ -45,11 +44,11 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
+            [['username'], 'required'],
             [['status', 'created_at', 'updated_at'], 'integer'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
-            [['user_lastname', 'user_firstname', 'user_contactno', 'user_homeadd', 'user_emailadd', 'user_actministry', 'user_attendance'], 'string', 'max' => 45],
+            [['user_lastname', 'user_firstname', 'user_contactno', 'user_homeadd', 'user_actministry', 'user_attendance'], 'string', 'max' => 45],
             [['user_type'], 'string', 'max' => 20]
         ];
     }
@@ -73,7 +72,6 @@ class User extends \yii\db\ActiveRecord
             'user_firstname' => 'User Firstname',
             'user_contactno' => 'User Contactno',
             'user_homeadd' => 'User Homeadd',
-            'user_emailadd' => 'User Emailadd',
             'user_actministry' => 'User Actministry',
             'user_attendance' => 'User Attendance',
             'user_type' => 'User Type',
