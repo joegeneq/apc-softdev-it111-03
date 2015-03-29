@@ -9,6 +9,7 @@ use yii\grid\GridView;
 
 $this->title = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
+$dataProvider->pagination = ['defaultPageSize' => 10];
 ?>
 <div class="user-index">
 
@@ -16,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create User', ['site/signup'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,22 +26,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
-            // 'email:email',
-            // 'status',
-            // 'created_at',
-            // 'updated_at',
-            // 'user_lastname',
-            // 'user_firstname',
-            // 'user_contactno',
-            // 'user_homeadd',
-            // 'user_actministry',
-            // 'user_attendance',
-            // 'user_type',
+            //'auth_key',
+            //'password_hash',
+            //'password_reset_token',
+            'email:email',
+            //'status',
+            //'created_at',
+            //'updated_at',
+            'user_lastname',
+            'user_firstname',
+            'user_contactno',
+            'user_homeadd',
+            'user_actministry',
+            //'user_attendance',
+            'user_type',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
