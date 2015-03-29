@@ -30,17 +30,17 @@ use yii\widgets\ActiveForm;
         ->dropDownList(
             $items = 
 	            [
-		            'Health'=>'Health',
 		            'Career'=>'Career',
-		            'Studies'=>'Studies',
-		            'Pregnancy'=>'Pregnancy',
-		            'Family'=>'Family',
-		            'Relationship'=>'Relationship',
-		            'Travelling'=>'Travelling',
-		            'Spiritual Growth'=>'Spiritual Growth',
-		            'Evangelistic'=>'Evangelistic',
-		            'Financial'=>'Financial',
-		            'Reconciliation'=>'Reconciliation',
+	            	'Evangelistic'=>'Evangelistic',
+	            	'Family'=>'Family',
+	            	'Financial'=>'Financial',
+	            	'Health'=>'Health',
+	            	'Pregnancy'=>'Pregnancy',
+	            	'Reconciliation'=>'Reconciliation',
+	            	'Relationship'=>'Relationship',
+	            	'Spiritual Growth'=>'Spiritual Growth',
+	            	'Studies'=>'Studies',
+	            	'Travelling'=>'Travelling',
 		            'Others'=>'Others'
 
 	            ], // Flat array ('id'=>'label')
