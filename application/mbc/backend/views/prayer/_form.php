@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
         );
      ?>
 
-    <?=  $form->field($model, 'prayerrequest_type')
+    <?=  $form->field($model, 'prayer_type')
         ->dropDownList(
             $items = 
 	            [
