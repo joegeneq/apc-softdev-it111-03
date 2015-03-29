@@ -15,7 +15,7 @@ use yii\bootstrap\NavBar;
     } else {
         $menuItems = [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'User', 'url' => ['/site/lrt1']],
+            ['label' => 'User', 'url' => ['/user/index']],
             ['label' => 'Events', 'url' => ['/events/index']],
             ['label' => 'Prayer Resquests', 'url' => ['/prayerrequest/index']],
         ];
