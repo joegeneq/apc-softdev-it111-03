@@ -10,19 +10,7 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<script src="http://maps.googleapis.com/maps/api/js"></script>
-<script>
-function initialize() {
-  var mapProp = {
-    center:new google.maps.LatLng(14.4066232,121.0459747),
-    zoom:17,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-<div class="site-contact">
+
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
@@ -46,8 +34,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 </div>
             <?php ActiveForm::end(); ?>
         </div>
-        <div id="googleMap" style="width:500px;height:380px;">
-        </div>
+        <img src="images/MAP.png" style="width:500px;height:380px;"></img>
     </div>
 
 </div>
