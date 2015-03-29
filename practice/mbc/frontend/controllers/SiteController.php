@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use Yii;
+use common\models\User;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -21,7 +22,7 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()
+ /**   public function behaviors()
     {
         return [
             'access' => [
