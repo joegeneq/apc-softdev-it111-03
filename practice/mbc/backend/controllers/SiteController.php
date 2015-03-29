@@ -6,6 +6,8 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use common\models\LoginForm;
 use yii\filters\VerbFilter;
+use backend\models\SignupForm;
+use yii\web\ForbiddenHttpException;
 
 /**
  * Site controller
@@ -22,7 +24,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error', 'signup'],
                         'allow' => true,
                     ],
                     [
@@ -55,7 +57,15 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+
+        if( Yii::$app->user->can( 'admin')){
+            return $this->render('index');
+        }
+        else 
+        {
+            Yii::$app->user->logout();
+           throw new ForbiddenHttpException;
+        }
     }
 
     public function actionLogin()
@@ -79,5 +89,24 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionSignup()
+    {
+     if( Yii::$app->user->can( 'admin')){
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                    return $this->redirect(['user/index']);
+            }
+        }
+
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
+        }else 
+        {
+           throw new ForbiddenHttpException;
+        }
     }
 }
