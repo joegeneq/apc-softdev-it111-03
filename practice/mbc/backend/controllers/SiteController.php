@@ -8,6 +8,7 @@ use common\models\LoginForm;
 use yii\filters\VerbFilter;
 use backend\models\SignupForm;
 use yii\web\ForbiddenHttpException;
+use backend\models\AuthItem;
 
 /**
  * Site controller
@@ -95,6 +96,8 @@ class SiteController extends Controller
     {
      if( Yii::$app->user->can( 'admin')){
         $model = new SignupForm();
+        $authItems = AuthItem::find()->all();
+
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                     return $this->redirect(['user/index']);
@@ -103,6 +106,7 @@ class SiteController extends Controller
 
         return $this->render('signup', [
             'model' => $model,
+            'authItems' => $authItems, 
         ]);
         }else 
         {
