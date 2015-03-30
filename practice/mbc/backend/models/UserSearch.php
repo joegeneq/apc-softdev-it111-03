@@ -1,14 +1,14 @@
 <?php
 
-namespace app\models;
+namespace backend\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\User;
+use backend\models\User;
 
 /**
- * UserSearch represents the model behind the search form about `app\models\User`.
+ * UserSearch represents the model behind the search form about `backend\models\User`.
  */
 class UserSearch extends User
 {
@@ -19,7 +19,8 @@ class UserSearch extends User
     {
         return [
             [['id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'user_lastname', 'user_firstname', 'user_contactno', 'user_homeadd', 'user_actministry', 'user_attendance', 'user_type'], 'safe'],
+            [['username', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'user_name', 'user_contactno', 
+            'user_homeadd', 'user_actministry', 'user_attendance'], 'safe'],
         ];
     }
 
@@ -67,13 +68,11 @@ class UserSearch extends User
             ->andFilterWhere(['like', 'password_hash', $this->password_hash])
             ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
             ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'user_lastname', $this->user_lastname])
-            ->andFilterWhere(['like', 'user_firstname', $this->user_firstname])
+            ->andFilterWhere(['like', 'user_name', $this->user_name])
             ->andFilterWhere(['like', 'user_contactno', $this->user_contactno])
             ->andFilterWhere(['like', 'user_homeadd', $this->user_homeadd])
             ->andFilterWhere(['like', 'user_actministry', $this->user_actministry])
-            ->andFilterWhere(['like', 'user_attendance', $this->user_attendance])
-            ->andFilterWhere(['like', 'user_type', $this->user_type]);
+            ->andFilterWhere(['like', 'user_attendance', $this->user_attendance]);
 
         return $dataProvider;
     }

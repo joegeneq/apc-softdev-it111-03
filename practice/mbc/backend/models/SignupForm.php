@@ -1,6 +1,7 @@
 <?php
 namespace backend\models;
 
+use backend\models\AuthAssignment;
 use common\models\User;
 use yii\base\Model;
 use Yii;
@@ -13,13 +14,12 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
-    public $user_lastname;
-    public $user_firstname;
+    public $user_name;
     public $user_contactno;
     public $user_homeadd;
     public $user_actministry;
     public $user_attendance;
-    public $user_type;
+    public $permissions;
 
     /**
      * @inheritdoc
@@ -40,8 +40,7 @@ class SignupForm extends Model
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
 
-            [['user_lastname', 'user_firstname', 'user_contactno', 'user_homeadd', 'user_actministry', 'user_attendance'], 'string', 'max' => 45],
-            [['user_type'], 'string', 'max' => 20],
+            [['user_name', 'user_contactno', 'user_homeadd', 'user_actministry', 'user_attendance'], 'string', 'max' => 45],
         ];
     }
 
@@ -54,20 +53,29 @@ class SignupForm extends Model
     {
         if ($this->validate()) {
             $user = new User();
-            $user->user_lastname = $this->user_lastname;
+            $user->user_name = $this->user_name;
             $user->username = $this->username;
-            $user->user_firstname = $this->user_firstname;
             $user->user_contactno = $this->user_contactno;
             $user->user_homeadd = $this->user_homeadd;
             $user->user_actministry = $this->user_actministry;
             $user->user_attendance = $this->user_attendance;
             $user->email = $this->email;
             $user->setPassword($this->password);
-            $user->user_type = $this->user_type;
             $user->generateAuthKey();
             if ($user->save()) {
-                return $user;
+                
+                //permissions
+                $permissionList = $_POST['SignupForm']['permissions'];
+                foreach($permissionList as $value)
+                {
+                    $newPermission = new AuthAssignment;
+                    $newPermission->user_id = $user->id;
+                    $newPermission->item_name = $value;
+                    $newPermission->save();
+                }
+                
             }
+            return $user;
         }
 
         return null;
