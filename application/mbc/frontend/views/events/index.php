@@ -9,15 +9,17 @@ use yii\grid\GridView;
 
 $this->title = 'Events';
 $this->params['breadcrumbs'][] = $this->title;
+$dataProvider->pagination = ['defaultPageSize' => 10];
 ?>
 <div class="events-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+<!--
     <p>
         <?= Html::a('Create Events', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+-->
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -32,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'event_desc',
             // 'no_of_attendees',
 
-            ['class' => 'yii\grid\ActionColumn'],
+          //  ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 
