@@ -4,12 +4,11 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\EventsSearch */
+/* @var $searchModel frontend\models\EventsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Events';
 $this->params['breadcrumbs'][] = $this->title;
-$dataProvider->pagination = ['defaultPageSize' => 10];
 ?>
 <div class="events-index">
 
