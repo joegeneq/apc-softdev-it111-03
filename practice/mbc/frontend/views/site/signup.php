@@ -17,8 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
-                <?= $form->field($model, 'user_lastname') ?>
-                <?= $form->field($model, 'user_firstname') ?>
+                <?= $form->field($model, 'user_name')->label('Full Name')?>
                 <?= $form->field($model, 'user_contactno') ?>
                 <?= $form->field($model, 'user_homeadd') ?>
                 <?= $form->field($model, 'user_actministry') ?>
@@ -26,7 +25,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'username') ?>
                 <?= $form->field($model, 'email') ?>
                 <?= $form->field($model, 'password')->passwordInput() ?>
-                <?= $form->field($model, 'user_type') ?>
                 <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
