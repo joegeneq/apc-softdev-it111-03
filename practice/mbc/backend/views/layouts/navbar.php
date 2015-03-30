@@ -15,9 +15,13 @@ use yii\bootstrap\NavBar;
     } else {
         $menuItems = [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'User', 'url' => ['/user/index']],
-            ['label' => 'Events', 'url' => ['/events/index']],
-            ['label' => 'Prayer Resquests', 'url' => ['/prayerrequest/index']],
+
+            ['label' => 'Manage', 'items' => [
+                ['label' => 'User', 'url' => ['/user/index']],
+                ['label' => 'Tithe', 'url' => ['/tithe/index']],
+                ['label' => 'Events', 'url' => ['/events/index']],
+                ['label' => 'Prayer Resquests', 'url' => ['/prayerr/index']],
+            ]],
         ];
         $menuItems[] = [
             'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
