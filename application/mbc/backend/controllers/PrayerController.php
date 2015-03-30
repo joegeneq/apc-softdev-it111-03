@@ -1,18 +1,18 @@
 <?php
 
-namespace frontend\controllers;
+namespace backend\controllers;
 
 use Yii;
-use app\models\PrayerRequest;
-use app\models\PrayerRequestSearch;
+use app\models\Prayer;
+use app\models\PrayerSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PrayerRequestController implements the CRUD actions for PrayerRequest model.
+ * PrayerController implements the CRUD actions for Prayer model.
  */
-class PrayerRequestController extends Controller
+class PrayerController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class PrayerRequestController extends Controller
     }
 
     /**
-     * Lists all PrayerRequest models.
+     * Lists all Prayer models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PrayerRequestSearch();
+        $searchModel = new PrayerSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class PrayerRequestController extends Controller
     }
 
     /**
-     * Displays a single PrayerRequest model.
+     * Displays a single Prayer model.
      * @param integer $id
      * @return mixed
      */
@@ -54,13 +54,13 @@ class PrayerRequestController extends Controller
     }
 
     /**
-     * Creates a new PrayerRequest model.
+     * Creates a new Prayer model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new PrayerRequest();
+        $model = new Prayer();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +72,7 @@ class PrayerRequestController extends Controller
     }
 
     /**
-     * Updates an existing PrayerRequest model.
+     * Updates an existing Prayer model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,7 +91,7 @@ class PrayerRequestController extends Controller
     }
 
     /**
-     * Deletes an existing PrayerRequest model.
+     * Deletes an existing Prayer model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +104,15 @@ class PrayerRequestController extends Controller
     }
 
     /**
-     * Finds the PrayerRequest model based on its primary key value.
+     * Finds the Prayer model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return PrayerRequest the loaded model
+     * @return Prayer the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = PrayerRequest::findOne($id)) !== null) {
+        if (($model = Prayer::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

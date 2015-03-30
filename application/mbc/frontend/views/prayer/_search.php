@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PrayerRequestSearch */
+/* @var $model app\models\PrayerSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="prayer-request-search">
+<div class="prayer-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,11 +17,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'prayerrequest_code') ?>
+    <?= $form->field($model, 'prayer_code') ?>
 
-    <?= $form->field($model, 'prayerrequest_type') ?>
+    <?= $form->field($model, 'prayer_type') ?>
 
-    <?= $form->field($model, 'prayerrequest_description') ?>
+    <?= $form->field($model, 'prayer_description') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

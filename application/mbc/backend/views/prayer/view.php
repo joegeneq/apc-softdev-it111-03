@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PrayerRequest */
+/* @var $model app\models\Prayer */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Prayer Requests', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Prayers', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="prayer-request-view">
+<div class="prayer-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,9 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'prayerrequest_code',
-            'prayerrequest_type',
-            'prayerrequest_description',
+            'prayer_code',
+            'prayer_type',
+            'prayer_description',
         ],
     ]) ?>
 

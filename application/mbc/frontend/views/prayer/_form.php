@@ -4,16 +4,15 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PrayerRequest */
+/* @var $model app\models\Prayer */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="prayer-request-form">
+<div class="prayer-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'prayerrequest_code')->textInput() 
-
+    <?= $form->field($model, 'prayer_code')->textInput() 
     ->dropDownList(
             $items = 
 	            [
@@ -26,21 +25,21 @@ use yii\widgets\ActiveForm;
         );
      ?>
 
-    <?=  $form->field($model, 'prayerrequest_type')
+    <?=  $form->field($model, 'prayer_type')
         ->dropDownList(
             $items = 
 	            [
-		            'Health'=>'Health',
 		            'Career'=>'Career',
-		            'Studies'=>'Studies',
-		            'Pregnancy'=>'Pregnancy',
-		            'Family'=>'Family',
-		            'Relationship'=>'Relationship',
-		            'Travelling'=>'Travelling',
-		            'Spiritual Growth'=>'Spiritual Growth',
-		            'Evangelistic'=>'Evangelistic',
-		            'Financial'=>'Financial',
-		            'Reconciliation'=>'Reconciliation',
+	            	'Evangelistic'=>'Evangelistic',
+	            	'Family'=>'Family',
+	            	'Financial'=>'Financial',
+	            	'Health'=>'Health',
+	            	'Pregnancy'=>'Pregnancy',
+	            	'Reconciliation'=>'Reconciliation',
+	            	'Relationship'=>'Relationship',
+	            	'Spiritual Growth'=>'Spiritual Growth',
+	            	'Studies'=>'Studies',
+	            	'Travelling'=>'Travelling',
 		            'Others'=>'Others'
 
 	            ], // Flat array ('id'=>'label')
@@ -49,7 +48,7 @@ use yii\widgets\ActiveForm;
      ?>
 
 
-    <?= $form->field($model, 'prayerrequest_description')->textInput(['maxlength' => 100]) ?>
+    <?= $form->field($model, 'prayer_description')->textInput(['maxlength' => 100]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\PrayerRequest;
+use app\models\Prayer;
 
 /**
- * PrayerRequestSearch represents the model behind the search form about `app\models\PrayerRequest`.
+ * PrayerSearch represents the model behind the search form about `app\models\Prayer`.
  */
-class PrayerRequestSearch extends PrayerRequest
+class PrayerSearch extends Prayer
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class PrayerRequestSearch extends PrayerRequest
     public function rules()
     {
         return [
-            [['id', 'prayerrequest_code'], 'integer'],
-            [['prayerrequest_type', 'prayerrequest_description'], 'safe'],
+            [['id', 'prayer_code'], 'integer'],
+            [['prayer_type', 'prayer_description'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class PrayerRequestSearch extends PrayerRequest
      */
     public function search($params)
     {
-        $query = PrayerRequest::find();
+        $query = Prayer::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -57,11 +57,11 @@ class PrayerRequestSearch extends PrayerRequest
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'prayerrequest_code' => $this->prayerrequest_code,
+            'prayer_code' => $this->prayer_code,
         ]);
 
-        $query->andFilterWhere(['like', 'prayerrequest_type', $this->prayerrequest_type])
-            ->andFilterWhere(['like', 'prayerrequest_description', $this->prayerrequest_description]);
+        $query->andFilterWhere(['like', 'prayer_type', $this->prayer_type])
+            ->andFilterWhere(['like', 'prayer_description', $this->prayer_description]);
 
         return $dataProvider;
     }
