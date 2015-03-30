@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\UserSearch */
+/* @var $model backend\models\UserSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -33,9 +33,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'updated_at') ?>
 
-    <?php // echo $form->field($model, 'user_lastname') ?>
-
-    <?php // echo $form->field($model, 'user_firstname') ?>
+    <?php // echo $form->field($model, 'user_name') ?>
 
     <?php // echo $form->field($model, 'user_contactno') ?>
 
@@ -44,8 +42,6 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'user_actministry') ?>
 
     <?php // echo $form->field($model, 'user_attendance') ?>
-
-    <?php // echo $form->field($model, 'user_type') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
