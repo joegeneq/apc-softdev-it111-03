@@ -23,15 +23,9 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'tithe_amount')->textInput() ?>
 
-    <!--<?= $form->field($model, 'user_id')->textInput() ?>-->
-
-    <!--<?= $form->field($model, 'user_id')
-		    ->dropDownList(
-		    [''=>'Select user', '1' =>'111', '2'=>'222'])?> -->
-
-        <?= $form->field($model, 'user_id')->dropDownList(
+    <?= $form->field($model, 'user_id')->dropDownList(
     	ArrayHelper::map(User::find()->all(),'id', 'user_name'),
-    	['prompt'=>'Choose user'])?>
+	['prompt'=>'Choose user'])?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

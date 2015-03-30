@@ -9,6 +9,7 @@ use yii\grid\GridView;
 
 $this->title = 'Tithes';
 $this->params['breadcrumbs'][] = $this->title;
+$dataProvider->pagination = ['defaultPageSize' => 10];
 ?>
 <div class="tithe-index">
 
