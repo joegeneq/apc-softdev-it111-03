@@ -46,9 +46,9 @@ class Tithe extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'tithe_date' => 'Tithe Date',
-            'tithe_envno' => 'Tithe Envno',
+            'tithe_envno' => 'Envelope Number',
             'tithe_amount' => 'Tithe Amount',
-            'user_id' => 'User ID',
+            'user_id' => 'User Name',
         ];
     }
 
