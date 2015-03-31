@@ -35,8 +35,8 @@ use dosamigos\datepicker\DatePicker;
     ->dropDownList(
             $items = 
 	            [
-		            '1'=>'High',
-		            '2'=>'Normal'
+		            'High'=>'High',
+		            'Low'=>'Low'
 	            ], // Flat array ('id'=>'label')
             ['prompt'=>'Select Priority Level']    // options
         );
