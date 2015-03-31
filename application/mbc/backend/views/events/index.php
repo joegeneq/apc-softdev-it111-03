@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use dosamigos\datepicker\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\EventsSearch */
@@ -27,7 +28,20 @@ $dataProvider->pagination = ['defaultPageSize' => 10];
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'events_date',
+            [
+                'attribute' => 'events_date',
+                'value' => 'events_date',
+                'format' => 'raw',
+                'filter' => DatePicker::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'events_date',
+                        'clientOptions' => [
+                            'autoclose' => true,
+                            'format' => 'yy-mm-dd',
+                        ]
+                ]),
+            ],
+         // 'events_date',
             'events_location',
             'events_prioritylevel',
             'event_desc',
