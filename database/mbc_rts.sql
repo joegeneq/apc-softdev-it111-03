@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2015 at 04:25 AM
+-- Generation Time: Apr 01, 2015 at 05:13 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -38,8 +38,11 @@ CREATE TABLE IF NOT EXISTS `auth_assignment` (
 --
 
 INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
+('admin', '10', NULL),
 ('admin', '4', NULL),
 ('admin', '6', NULL),
+('admin', '9', NULL),
+('member', '11', NULL),
 ('member', '5', NULL),
 ('member', '8', NULL);
 
@@ -187,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_actministry` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `user_attendance` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `user`
@@ -197,8 +200,10 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 (4, 'admin', 'wzDxHx9a_eN9GYoIRYHyEuCWIdJMz492', '$2y$13$iIfUICF6aI9XHGDpK5pEduiCoGS.p9ZtK1KtNabTnMqCB1sQDMzq6', NULL, 'admin@admin.com', 10, 1427674384, 1427674384, '', '', '', '', ''),
 (5, 'member', 'A21W8unSMcuDZ1d80p5IVEIKgmjJRb2v', '$2y$13$u626vZuRPizf6LOzA3ySDO.tOQKmlr/akqp0NN3NHAklnCmZMek/m', NULL, 'member@member.com', 10, 1427674415, 1427674415, '', '', '', '', ''),
 (6, 'acgsia', 'SYvA6DfD3a-odlnhtPSgLeLfwF5owYx3', '$2y$13$Xr/qP7liK2.VhOGZ8rn3le5wIV8suL8aaZn8p6lRXcPcjUk1OpZSW', NULL, 'acgsia@gmail.com', 10, 1427677333, 1427677333, 'Angelo Sia', '3637175', '164 Sample St', 'Balintawak', ''),
-(7, 'abby', 'uc4dL2UGarmUL0zfCUGbhM8_amdYwQgE', '$2y$13$FadLVodPcJl9hy1.so11p.FJNLidCRyZOc71hFXTUUjm9ZQD.aQ4q', NULL, 'abby@abby.com', 10, 1427697959, 1427697959, 'Arianne Papna', '09358142357', 'Taguig City', 'Youth President', 'Perfect Attendance'),
-(8, 'abby_bia', 'W55S4__O-kGntfI_Ih69QlrHXvaagKeX', '$2y$13$zdrlqyNm/KycAxhUKcVaVuBDDkBpuN3WRc8rdkoXs25Fi7VHbp1A.', NULL, 'abby_bia@abby.com', 10, 1427698024, 1427698024, 'Arianne Papna', '09358142357', 'Taguig City', 'Youth President', 'Perfect Attendance');
+(8, 'abby_bia', 'W55S4__O-kGntfI_Ih69QlrHXvaagKeX', '$2y$13$zdrlqyNm/KycAxhUKcVaVuBDDkBpuN3WRc8rdkoXs25Fi7VHbp1A.', NULL, 'abby_bia@abby.com', 10, 1427698024, 1427698024, 'Arianne Papna', '09358142357', 'Taguig City', 'Youth President', 'Perfect Attendance'),
+(9, 'PSagun', 'Bb5eJmX7yX5vQvtRh2Z1tBAHZsfXTLpK', '$2y$13$89bNXGWEOiIYyTax0hHj/uU5G8ewKzjA8rQTh7lXUwmNmvLGgFDte', NULL, 'PSaguna@mbc.com', 10, 1427855427, 1427855427, 'Paolo Sagun', '0925118645', '619 Damo Damo Street Butong ', 'Ministry', '5'),
+(10, 'JAcuna', 'U6PiccSHveVh2PPWwRQR8UVbHYZRhCMM', '$2y$13$E4eZmB2af9sp2JWvsIl9O..piztVkRACthRqfNQCkY4Hi1t5SHM1u', NULL, 'JAcuna@mbc.com', 10, 1427855476, 1427855476, 'Julian Acuna', '09161234567', '23 Michael Jordan', 'Act', '100'),
+(11, 'Jowee', '2Dz2T9yab4QfSyQsRJO7Pio1yZKZqEGe', '$2y$13$p5XF4kguBpkq82WwKXR76uUfLSgS0JP9L6n.85O/KQ17A2Y7fqxSW', NULL, 'Jwee@mbc.com', 10, 1427855569, 1427855569, 'Jow Wee', '4278854', '55 Siomai Hopia', 'Head ', '56');
 
 -- --------------------------------------------------------
 

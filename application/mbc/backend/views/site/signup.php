@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php 
                     $authItems = ArrayHelper::map($authItems, 'name','name');
                 ?>
-                <?= $form->field($model, 'permissions') -> checkboxList($authItems); ?>
+                <?= $form->field($model, 'permissions') -> radioList($authItems); ?>
                 <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
