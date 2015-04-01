@@ -27,7 +27,7 @@ $dataProvider->pagination = ['defaultPageSize' => 10];
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+        //  'id',
             [
                 'attribute' => 'events_date',
                 'value' => 'events_date',
