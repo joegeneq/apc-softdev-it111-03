@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.6
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2015 at 04:25 AM
--- Server version: 5.6.16
--- PHP Version: 5.5.9
+-- Generation Time: Mar 30, 2015 at 12:51 PM
+-- Server version: 5.6.14
+-- PHP Version: 5.5.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -133,13 +133,8 @@ CREATE TABLE IF NOT EXISTS `migration` (
 
 CREATE TABLE IF NOT EXISTS `prayer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `prayer_desc` varchar(100) DEFAULT NULL,
-  `prayer_type` varchar(45) DEFAULT NULL,
-  `prayer_code` varchar(10) NOT NULL,
-  `prayer_schedule` date DEFAULT NULL,
-  `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`user_id`),
-  KEY `fk_member_gives_prayerrequest_user1_idx` (`user_id`)
+  `prayerrequest_code` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -156,14 +151,16 @@ CREATE TABLE IF NOT EXISTS `tithe` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`,`user_id`),
   KEY `fk_tithe_user1_idx` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `tithe`
 --
 
 INSERT INTO `tithe` (`id`, `tithe_date`, `tithe_envno`, `tithe_amount`, `user_id`) VALUES
-(4, '2015-09-12', '23', 200, 6);
+(1, '2015-02-14', '1', 100, 6),
+(2, '2015-02-14', '1', 1, 7),
+(3, '2015-02-14', '1', 1, 8);
 
 -- --------------------------------------------------------
 
@@ -199,6 +196,23 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 (6, 'acgsia', 'SYvA6DfD3a-odlnhtPSgLeLfwF5owYx3', '$2y$13$Xr/qP7liK2.VhOGZ8rn3le5wIV8suL8aaZn8p6lRXcPcjUk1OpZSW', NULL, 'acgsia@gmail.com', 10, 1427677333, 1427677333, 'Angelo Sia', '3637175', '164 Sample St', 'Balintawak', ''),
 (7, 'abby', 'uc4dL2UGarmUL0zfCUGbhM8_amdYwQgE', '$2y$13$FadLVodPcJl9hy1.so11p.FJNLidCRyZOc71hFXTUUjm9ZQD.aQ4q', NULL, 'abby@abby.com', 10, 1427697959, 1427697959, 'Arianne Papna', '09358142357', 'Taguig City', 'Youth President', 'Perfect Attendance'),
 (8, 'abby_bia', 'W55S4__O-kGntfI_Ih69QlrHXvaagKeX', '$2y$13$zdrlqyNm/KycAxhUKcVaVuBDDkBpuN3WRc8rdkoXs25Fi7VHbp1A.', NULL, 'abby_bia@abby.com', 10, 1427698024, 1427698024, 'Arianne Papna', '09358142357', 'Taguig City', 'Youth President', 'Perfect Attendance');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_gives_prayer`
+--
+
+CREATE TABLE IF NOT EXISTS `user_gives_prayer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `prayerrequest_id` int(11) NOT NULL,
+  `member_gives_prayerrequest_description` varchar(100) DEFAULT NULL,
+  `prayerrequest_type` varchar(45) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`prayerrequest_id`,`user_id`),
+  KEY `fk_member_gives_prayerrequest_user1_idx` (`user_id`),
+  KEY `fk_Member_gives_PrayerRequest_PrayerRequest1` (`prayerrequest_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -240,16 +254,17 @@ ALTER TABLE `auth_item_child`
   ADD CONSTRAINT `fk_{D3E7AA73-43BE-48A2-B391-64DF2610474E}` FOREIGN KEY (`child`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `prayer`
---
-ALTER TABLE `prayer`
-  ADD CONSTRAINT `fk_member_gives_prayerrequest_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
 -- Constraints for table `tithe`
 --
 ALTER TABLE `tithe`
   ADD CONSTRAINT `fk_tithe_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `user_gives_prayer`
+--
+ALTER TABLE `user_gives_prayer`
+  ADD CONSTRAINT `fk_Member_gives_PrayerRequest_PrayerRequest1` FOREIGN KEY (`prayerrequest_id`) REFERENCES `prayer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_member_gives_prayerrequest_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `user_has_events`
