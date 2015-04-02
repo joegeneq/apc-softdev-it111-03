@@ -65,7 +65,7 @@ class SiteController extends Controller
         else 
         {
             Yii::$app->user->logout();
-           throw new ForbiddenHttpException;
+           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
         }
     }
 
@@ -110,7 +110,7 @@ class SiteController extends Controller
         ]);
         }else 
         {
-           throw new ForbiddenHttpException;
+           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
         }
     }
 }
