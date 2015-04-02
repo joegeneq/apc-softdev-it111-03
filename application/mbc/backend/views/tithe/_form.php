@@ -4,7 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 
- use backend\models\User;
+use backend\models\User;
+use dosamigos\datepicker\Datepicker; 
 // use common\models\User;
 
 
@@ -17,7 +18,16 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'tithe_date')->textInput() ?>
+    <?= $form->field($model, 'tithe_date')->widget(
+    DatePicker::className(), [
+        // inline too, not bad
+        'inline' => false, 
+        'clientOptions' => [
+            'autoclose' => true,
+            'startDate' => '+0d',
+            'format' => 'yy-mm-dd' 
+        ]
+    ]);?>
 
     <?= $form->field($model, 'tithe_envno')->textInput(['maxlength' => 45]) ?>
 
