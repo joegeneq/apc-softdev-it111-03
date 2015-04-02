@@ -65,9 +65,9 @@ class User extends \yii\db\ActiveRecord
             'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'user_name' => 'User Name',
-            'user_contactno' => 'User Contactno',
-            'user_homeadd' => 'User Homeadd',
+            'user_name' => 'User Complete Name',
+            'user_contactno' => 'User Contact Number',
+            'user_homeadd' => 'User Home Address',
             'user_actministry' => 'User Actministry',
             'user_attendance' => 'User Attendance',
         ];

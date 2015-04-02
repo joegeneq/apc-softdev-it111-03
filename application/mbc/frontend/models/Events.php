@@ -49,9 +49,9 @@ class Events extends \yii\db\ActiveRecord
             'id' => 'ID',
             'events_date' => 'Events Date',
             'events_location' => 'Events Location',
-            'events_prioritylevel' => 'Events Prioritylevel',
-            'event_desc' => 'Event Desc',
-            'no_of_attendees' => 'No Of Attendees',
+            'events_prioritylevel' => 'Events Priority Level',
+            'event_desc' => 'Event Description',
+            'no_of_attendees' => 'No of Attendees',
         ];
     }
 
