@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use dosamigos\datepicker\DatePicker;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\TitheSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -27,7 +27,21 @@ $dataProvider->pagination = ['defaultPageSize' => 10];
             ['class' => 'yii\grid\SerialColumn'],
 
             //'id',
-            'tithe_date',
+            //'tithe_date',
+            [
+                'attribute' => 'tithe_date',
+                'value' => 'tithe_date',
+                'options'=> ['class'=>'width-25'],
+                'format' => 'raw',
+                'filter' => DatePicker::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'tithe_date',
+                        'clientOptions' => [
+                            'autoclose' => true,
+                            'format' => 'yy-mm-dd',
+                        ]
+                ]),
+            ],
             'tithe_envno',
             'tithe_amount',
 
