@@ -8,7 +8,7 @@ use backend\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\ForbiddenHttpException;
 /**
  * UserController implements the CRUD actions for User model.
  */
@@ -32,13 +32,19 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new UserSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if( Yii::$app->user->can( 'admin')){
+            $searchModel = new UserSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }else 
+            {
+                Yii::$app->user->logout();
+               throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+            }
     }
 
     /**
@@ -48,9 +54,15 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        if( Yii::$app->user->can( 'admin')){
+            return $this->render('view', [
+                'model' => $this->findModel($id),
+            ]);
+        }else 
+            {
+                Yii::$app->user->logout();
+               throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+            }
     }
 
     /**
@@ -60,7 +72,7 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-        $model = new User();
+       /** $model = new User();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -68,7 +80,14 @@ class UserController extends Controller
             return $this->render('create', [
                 'model' => $model,
             ]);
-        }
+        }*/
+        if( Yii::$app->user->can( 'admin')){
+            return $this->redirect('index.php?r=site%2Fsignup');
+         }else 
+            {
+                Yii::$app->user->logout();
+               throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+            }
     }
 
     /**
@@ -79,15 +98,21 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        if( Yii::$app->user->can( 'admin')){
+            $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
+         }else 
+            {
+                Yii::$app->user->logout();
+               throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+            }
     }
 
     /**
@@ -98,9 +123,15 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if( Yii::$app->user->can( 'admin')){
+            $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+            return $this->redirect(['index']);
+        }else 
+            {
+                Yii::$app->user->logout();
+               throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+            }
     }
 
     /**
