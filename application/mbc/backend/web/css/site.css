@@ -256,6 +256,13 @@ text-align: center;
   width:25%;
 }
 
+.inline{
+  display: inline;
+}
+
+.tithe-total{
+  float: right;
+}
 /*
     ------------------------------------->> Insert your css here before the font awesome css <<-------------------------------------
 */
