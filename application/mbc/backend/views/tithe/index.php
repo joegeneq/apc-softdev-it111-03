@@ -10,10 +10,14 @@ use dosamigos\datepicker\DatePicker;
 $this->title = 'Tithes';
 $this->params['breadcrumbs'][] = $this->title;
 $dataProvider->pagination = ['defaultPageSize' => 10];
+$query = (new \yii\db\Query())->from('tithe');
+$sum = $query->sum('tithe_amount');
+
 ?>
 <div class="tithe-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="inline"><?= Html::encode($this->title) ?></h1>
+    <h3 class="inline tithe-total">Total Collected: <?= Html::encode($sum) ?></h3>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
