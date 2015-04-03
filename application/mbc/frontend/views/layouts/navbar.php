@@ -14,7 +14,6 @@ use yii\bootstrap\NavBar;
         //$menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems = [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'All Prayers', 'url' => ['/site/allprayers']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
         ];
@@ -22,12 +21,12 @@ use yii\bootstrap\NavBar;
     } else {
         $menuItems = [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'All Prayers', 'url' => ['/site/allprayers']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             ['label' => 'Manage', 'items' => [
                 ['label' => 'Events', 'url' => ['/events/index']],
-                ['label' => 'My Prayers', 'url' => ['/prayer/index']],
+                ['label' => 'All Prayers', 'url' => ['/site/allprayers']],
+                ['label' => 'My Prayer Request', 'url' => ['/prayer/index']],
             ]],
         ];
         $menuItems[] = [
