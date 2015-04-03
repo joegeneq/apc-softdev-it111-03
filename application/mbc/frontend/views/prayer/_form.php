@@ -12,6 +12,7 @@ use dosamigos\datepicker\DatePicker;
 
 <div class="prayer-form">
 
+
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'prayer_desc')->textInput(['maxlength' => 100]) ?>
@@ -63,7 +64,7 @@ use dosamigos\datepicker\DatePicker;
         ]
 ]);?>
 
-    <?= $form->field($model, 'user_id')->textInput(['value'=>Yii::$app->user->identity->id]) ?>
+    <?= $form->field($model, 'user_id')->textInput(['value'=>Yii::$app->user->identity->id,'disabled' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
