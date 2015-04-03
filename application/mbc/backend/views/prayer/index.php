@@ -25,8 +25,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            'id', 
+            [
+                'attribute'=>'user_username',
+                'value'=>'user.username',
+            ],
             'prayer_desc',
+
             [   'attribute'=>'prayer_type', 
                 'filter'=> [ 
                     'Career'=>'Career',
