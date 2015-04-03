@@ -28,6 +28,18 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'mailer' => [
+        'class' => 'yii\swiftmailer\Mailer',
+        'useFileTransport' => false,
+            'transport' => [
+            'class' => 'Swift_SmtpTransport',
+            'host' => 'smtp.gmail.com',
+            'username' => 'acgsiatest2@gmail.com',
+            'password' => 'sample123!',
+            'port' => '587',
+            'encryption' => 'tls',
+            ],
+        ], 
     ],
     'params' => $params,
 ];
