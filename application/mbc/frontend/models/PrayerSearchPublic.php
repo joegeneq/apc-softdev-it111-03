@@ -7,6 +7,8 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use frontend\models\Prayer;
 
+use common\models\User;
+
 /**
  * PrayerSearch represents the model behind the search form about `frontend\models\Prayer`.
  */
@@ -55,15 +57,17 @@ class PrayerSearchPublic extends Prayer
             return $dataProvider;
         }
 
+        $query->joinWith('user');
+
         $query->andFilterWhere([
             'id' => $this->id,
             'prayer_schedule' => $this->prayer_schedule,
-            'user_id' => $this->user_id,
         ]);
 
         $query->andFilterWhere(['like', 'prayer_desc', $this->prayer_desc])
             ->andFilterWhere(['like', 'prayer_type', $this->prayer_type])
-            ->andFilterWhere(['like', 'prayer_code', $this->prayer_code]);
+            ->andFilterWhere(['like', 'prayer_code', $this->prayer_code])
+            ->andFilterWhere(['like', 'user.username', $this->user_id]);
 
         return $dataProvider;
     }

@@ -2,6 +2,8 @@
 
 namespace frontend\models;
 
+use common\models\User;
+
 use Yii;
 
 /**
@@ -32,8 +34,8 @@ class Prayer extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['prayer_code', 'user_id'], 'required'],
-            [['prayer_schedule'], 'safe'],
+            [['prayer_code'], 'required'],
+            [['prayer_schedule', 'user_id'], 'safe'],
             [['user_id'], 'integer'],
             [['prayer_desc'], 'string', 'max' => 100],
             [['prayer_type'], 'string', 'max' => 45],
@@ -48,11 +50,12 @@ class Prayer extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'user_username' => 'Name',
             'prayer_desc' => 'Prayer Desc',
             'prayer_type' => 'Prayer Type',
             'prayer_code' => 'Prayer Code',
             'prayer_schedule' => 'Prayer Schedule',
-            'user_id' => 'User ID',
+            //'user_id' => 'User ID',
         ];
     }
 

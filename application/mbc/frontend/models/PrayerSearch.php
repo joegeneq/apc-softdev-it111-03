@@ -41,7 +41,7 @@ class PrayerSearch extends Prayer
      */
     public function search($params)
     {
-        $query = Prayer::find();
+        $query = Prayer::find()->where(['user_id'=>Yii::$app->user->identity->id]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
