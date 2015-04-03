@@ -32,6 +32,7 @@ $dataProvider->pagination = ['defaultPageSize' => 10];
             [
                 'attribute' => 'events_date',
                 'value' => 'events_date',
+                'options'=> ['class'=>'width-25'],
                 'format' => 'raw',
                 'filter' => DatePicker::widget([
                     'model' => $searchModel,
@@ -44,7 +45,11 @@ $dataProvider->pagination = ['defaultPageSize' => 10];
             ],
         //  'events_date',
             'events_location',
-            'events_prioritylevel',
+            [   'attribute'=>'events_prioritylevel', 
+                'filter'=> [ 'High'=>'High', 'Low'=>'Low' ], 
+            // Flat array ('id'=>'label') 
+            ],
+        //  'events_prioritylevel',
             'event_desc',
             // 'no_of_attendees',
 
