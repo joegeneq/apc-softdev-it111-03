@@ -52,7 +52,7 @@ class Prayer extends \yii\db\ActiveRecord
             'prayer_type' => 'Prayer Type',
             'prayer_code' => 'Prayer Code',
             'prayer_schedule' => 'Prayer Schedule',
-            'user_id' => 'User ID',
+            'user_username' => 'Username',
         ];
     }
 
