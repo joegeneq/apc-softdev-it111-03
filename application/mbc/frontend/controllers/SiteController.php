@@ -14,6 +14,9 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
+use frontend\models\Prayer;
+use frontend\models\PrayerSearchPublic;
+
 /**
  * Site controller
  */
@@ -69,6 +72,17 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+    public function actionAllprayers()
+    {
+        $searchModel = new PrayerSearchPublic();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('allPrayers', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     public function actionLogin()

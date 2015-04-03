@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use dosamigos\datepicker\DatePicker;
+
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Prayer */
@@ -36,11 +38,32 @@ use yii\widgets\ActiveForm;
         );
  ?>
 
-    <?= $form->field($model, 'prayer_code')->textInput(['maxlength' => 10]) ?>
+    <?= $form->field($model, 'prayer_code')->textInput(['maxlength' => 10])
+    ->dropDownList(
+            $items = 
+                [
+                    'Public'=>'Public',
+                    'Private'=>'Private'
 
-    <?= $form->field($model, 'prayer_schedule')->textInput() ?>
+                     ], // Flat array ('id'=>'label')
+            ['prompt'=>'Select PrayerCode']    // options
+        );
+        ?>
 
-    <?= $form->field($model, 'user_id')->textInput() ?>
+  <!--   <?= $form->field($model, 'prayer_schedule')->textInput() ?> -->
+    <?= $form->field($model, 'prayer_schedule')->widget(
+    DatePicker::className(), [
+        // inline too, not bad
+         'inline' => false, 
+         // modify template for custom rendering
+       // 'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
+        'clientOptions' => [
+            'autoclose' => true,
+            'format' => 'yyyy-mm-dd'
+        ]
+]);?>
+
+    <?= $form->field($model, 'user_id')->textInput(['value'=>Yii::$app->user->identity->id]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
