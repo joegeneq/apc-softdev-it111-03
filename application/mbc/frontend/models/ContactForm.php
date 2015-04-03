@@ -50,10 +50,10 @@ class ContactForm extends Model
     public function sendEmail($email)
     {
         return Yii::$app->mailer->compose()
-            ->setTo($email)
+            ->setTo([$this->email => $this->name])
             ->setFrom([$this->email => $this->name])
-            ->setSubject($this->subject)
-            ->setTextBody($this->body)
+            ->setSubject('Muntinlupa Baptist Church - Confirmation')
+            ->setTextBody('Thank you for contacting us!')
             ->send();
     }
 }
