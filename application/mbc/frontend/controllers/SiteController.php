@@ -16,6 +16,7 @@ use yii\filters\AccessControl;
 
 use frontend\models\Prayer;
 use frontend\models\PrayerSearchPublic;
+use yii\mail\BaseMailer;
 
 /**
  * Site controller
