@@ -27,7 +27,7 @@ use yii\bootstrap\NavBar;
             ['label' => 'Contact', 'url' => ['/site/contact']],
             ['label' => 'Manage', 'items' => [
                 ['label' => 'Events', 'url' => ['/events/index']],
-                ['label' => 'Prayer Request', 'url' => ['/prayer/index']],
+                ['label' => 'My Prayers', 'url' => ['/prayer/index']],
             ]],
         ];
         $menuItems[] = [

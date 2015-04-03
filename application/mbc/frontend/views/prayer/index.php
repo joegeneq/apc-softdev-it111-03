@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="prayer-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1>My Prayers</h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'prayer_desc',
              [   'attribute'=>'prayer_type', 
                 'filter'=> [ 
