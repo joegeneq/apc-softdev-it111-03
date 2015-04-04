@@ -26,9 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     	<?php  //else { ?>
 
-    	<!-- <div class="alert alert-danger"><p>There was an error sending email.</p></div>
+    	<!-- <div class="alert alert-danger"><p>There was an error sending email.</p></div>-->
 
-    	<?php } ?> -->
+    	<?php } ?> 
 
     <div class="row">
         <div class="col-lg-5">
