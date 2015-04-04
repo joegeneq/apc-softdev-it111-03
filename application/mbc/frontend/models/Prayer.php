@@ -50,7 +50,7 @@ class Prayer extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_username' => 'Name',
+            'user_id' => 'Name',
             'prayer_desc' => 'Prayer Desc',
             'prayer_type' => 'Prayer Type',
             'prayer_code' => 'Prayer Code',

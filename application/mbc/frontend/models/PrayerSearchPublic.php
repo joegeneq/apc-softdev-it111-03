@@ -20,8 +20,8 @@ class PrayerSearchPublic extends Prayer
     public function rules()
     {
         return [
-            [['id', 'user_id'], 'integer'],
-            [['prayer_desc', 'prayer_type', 'prayer_code', 'prayer_schedule'], 'safe'],
+            [['id'], 'integer'],
+            [['prayer_desc', 'user_id', 'prayer_type', 'prayer_code', 'prayer_schedule'], 'safe'],
         ];
     }
 
@@ -67,7 +67,7 @@ class PrayerSearchPublic extends Prayer
         $query->andFilterWhere(['like', 'prayer_desc', $this->prayer_desc])
             ->andFilterWhere(['like', 'prayer_type', $this->prayer_type])
             ->andFilterWhere(['like', 'prayer_code', $this->prayer_code])
-            ->andFilterWhere(['like', 'user.username', $this->user_id]);
+            ->andFilterWhere(['like', 'user.user_name', $this->user_id]);
 
         return $dataProvider;
     }
