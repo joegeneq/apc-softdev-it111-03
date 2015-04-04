@@ -6,9 +6,9 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\PrayerSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
 $this->title = 'Prayers';
 $this->params['breadcrumbs'][] = $this->title;
+$dataProvider->pagination = ['defaultPageSize' => 10];
 ?>
 <div class="prayer-index">
 
