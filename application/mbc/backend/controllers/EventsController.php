@@ -9,7 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
-
+use yii\filters\AccessControl;
 /**
  * EventsController implements the CRUD actions for Events model.
  */
@@ -18,6 +18,16 @@ class EventsController extends Controller
     public function behaviors()
     {
         return [
+         'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index', 'create', 'update', 'delete','view'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -33,7 +43,7 @@ class EventsController extends Controller
      */
     public function actionIndex()
     {
-        if( Yii::$app->user->can( 'admin')){
+        if(Yii::$app->user->identity->user_type===1){
             $searchModel = new EventsSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -44,7 +54,7 @@ class EventsController extends Controller
         }else 
         {
             Yii::$app->user->logout();
-           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
         }
     }
 
@@ -55,9 +65,9 @@ class EventsController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+            return $this->render('view', [
+                'model' => $this->findModel($id),
+            ]);
     }
 
     /**
@@ -67,7 +77,7 @@ class EventsController extends Controller
      */
     public function actionCreate()
     {
-        if( Yii::$app->user->can( 'admin')){
+        if(Yii::$app->user->identity->user_type===1){
             $model = new Events();
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -80,7 +90,7 @@ class EventsController extends Controller
          }else 
         {
             Yii::$app->user->logout();
-           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
         }
     }
 
@@ -92,7 +102,7 @@ class EventsController extends Controller
      */
     public function actionUpdate($id)
     {
-        if( Yii::$app->user->can( 'admin')){
+        if(Yii::$app->user->identity->user_type===1){
             $model = $this->findModel($id);
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -105,7 +115,7 @@ class EventsController extends Controller
         }else 
         {
             Yii::$app->user->logout();
-           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
         }
 
     }
