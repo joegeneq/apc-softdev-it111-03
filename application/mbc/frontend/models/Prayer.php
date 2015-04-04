@@ -39,7 +39,8 @@ class Prayer extends \yii\db\ActiveRecord
          //   [['user_id'], 'integer'],
             [['prayer_desc'], 'string', 'max' => 100],
             [['prayer_type'], 'string', 'max' => 45],
-            [['prayer_code'], 'string', 'max' => 10]
+            [['prayer_code'], 'string', 'max' => 10],
+            [['user_id'], 'default', 'value'=> yii::$app->user->identity->id]
         ];
     }
 
