@@ -20,15 +20,15 @@ $this->params['breadcrumbs'][] = $this->title;
         Muntinlupa Baptist Church | Contact No: 861-59-24 | Email-Add: mbc_phil74@yahoo.com | Address: 35 Summit Circle, Bayanan, Muntinlupa City
     </p>
 
-    <?php if(Yii::$app->session->hasFlash('success')) { ?>
+   <!--  <?php if(Yii::$app->session->hasFlash('success')) { ?>
 
     	<div class="alert alert-success"><p>Thank you for contacting us. We will respond to you as soon as possible.</p></div>
 
     	<?php  //else { ?>
 
-    	<!-- <div class="alert alert-danger"><p>There was an error sending email.</p></div>-->
+    	<!-- <div class="alert alert-danger"><p>There was an error sending email.</p></div>
 
-    	<?php } ?> 
+    	<?php } ?>  -->
 
     <div class="row">
         <div class="col-lg-5">
