@@ -9,7 +9,8 @@ use yii\grid\GridView;
 
 $this->title = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
-$dataProvider->pagination = ['defaultPageSize' => 10];?>
+$dataProvider->pagination = ['defaultPageSize' => 10];
+?>
 <div class="user-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
