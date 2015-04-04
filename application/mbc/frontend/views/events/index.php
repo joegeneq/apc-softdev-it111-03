@@ -51,7 +51,7 @@ $dataProvider->pagination = ['defaultPageSize' => 10];
             ],
         //  'events_prioritylevel',
             'event_desc',
-            // 'no_of_attendees',
+            'no_of_attendees',
 
           //  ['class' => 'yii\grid\ActionColumn'],
         ],
