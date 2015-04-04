@@ -25,10 +25,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id', 
+            //'id', 
             [
-                'attribute'=>'user_username',
-                'value'=>'user.username',
+                'attribute'=>'user_id',
+                'value'=>'user.user_name',
             ],
             'prayer_desc',
 
