@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
-
+use backend\models\authItem;
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\SignupForm */
@@ -26,10 +26,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'username') ?>
                 <?= $form->field($model, 'email') ?>
                 <?= $form->field($model, 'password')->passwordInput() ?>
-                <?php 
+<!--                 <?php 
                     $authItems = ArrayHelper::map($authItems, 'name','name');
                 ?>
-                <?= $form->field($model, 'permissions') -> radioList($authItems); ?>
+                <?= $form->field($model, 'permissions') -> dropDownList($authItems); ?> -->
+
+                    <?= $form->field($model, 'permissions') -> radioList(
+                        ArrayHelper::map(AuthItem::find()->all(), 'name','name'))?>
+
+
                 <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
