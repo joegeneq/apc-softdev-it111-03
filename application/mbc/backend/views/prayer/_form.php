@@ -3,7 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
-
+use yii\helpers\ArrayHelper;
+use backend\models\User;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Prayer */
 /* @var $form yii\widgets\ActiveForm */
@@ -13,8 +14,18 @@ use dosamigos\datepicker\DatePicker;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'prayer_desc')->textInput(['maxlength' => 100]) ?>
+    <?= $form->field($model, 'prayer_code')->textInput(['maxlength' => 10]) 
+    ->dropDownList(
+            $items = 
+                [
+                    'Public'=>'Public',
+                    'Private'=>'Private'
 
+                     ], // Flat array ('id'=>'label')
+            ['prompt'=>'Select PrayerCode']    // options
+        );
+        ?>
+        
     <?= $form->field($model, 'prayer_type')->textInput(['maxlength' => 45])
     ->dropDownList(
             $items = 
@@ -37,17 +48,7 @@ use dosamigos\datepicker\DatePicker;
         );
      ?>
 
-    <?= $form->field($model, 'prayer_code')->textInput(['maxlength' => 10]) 
-    ->dropDownList(
-            $items = 
-                [
-                    'Public'=>'Public',
-                    'Private'=>'Private'
-
-                     ], // Flat array ('id'=>'label')
-            ['prompt'=>'Select PrayerCode']    // options
-        );
-        ?>
+    <?= $form->field($model, 'prayer_desc')->textInput(['maxlength' => 100]) ?>
 
    <!-- <?= $form->field($model, 'prayer_schedule')->textInput() ?> -->
    <?= $form->field($model, 'prayer_schedule')->widget(
@@ -62,7 +63,9 @@ use dosamigos\datepicker\DatePicker;
         ]
 ]);?>
 
-    <?= $form->field($model, 'user_id')->textInput() ?>
+    <?= $form->field($model, 'user_id')->dropDownList(
+        ArrayHelper::map(User::find()->all(),'id', 'user_name'),
+    ['prompt'=>'Choose user'])?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
