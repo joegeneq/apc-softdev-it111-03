@@ -8,6 +8,7 @@ use backend\models\PrayerSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\ForbiddenHttpException;
 
 /**
  * PrayerController implements the CRUD actions for Prayer model.
@@ -32,13 +33,19 @@ class PrayerController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new PrayerSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if( Yii::$app->user->can( 'admin')){
+            $searchModel = new PrayerSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }else 
+        {
+            Yii::$app->user->logout();
+           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+        }
     }
 
     /**
@@ -49,9 +56,15 @@ class PrayerController extends Controller
      */
     public function actionView($id, $user_id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id, $user_id),
-        ]);
+        if( Yii::$app->user->can( 'admin')){
+            return $this->render('view', [
+                'model' => $this->findModel($id, $user_id),
+            ]);
+        }else 
+        {
+            Yii::$app->user->logout();
+           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+        }
     }
 
     /**
@@ -61,14 +74,20 @@ class PrayerController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Prayer();
+        if( Yii::$app->user->can( 'admin')){
+            $model = new Prayer();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id, 'user_id' => $model->user_id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id, 'user_id' => $model->user_id]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
+        }else 
+        {
+            Yii::$app->user->logout();
+           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
         }
     }
 
@@ -81,14 +100,20 @@ class PrayerController extends Controller
      */
     public function actionUpdate($id, $user_id)
     {
-        $model = $this->findModel($id, $user_id);
+        if( Yii::$app->user->can( 'admin')){
+            $model = $this->findModel($id, $user_id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id, 'user_id' => $model->user_id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id, 'user_id' => $model->user_id]);
+            } else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
+        }else 
+        {
+            Yii::$app->user->logout();
+           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
         }
     }
 
