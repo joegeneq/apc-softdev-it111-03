@@ -66,9 +66,15 @@ class PrayerController extends Controller
      */
     public function actionView($id, $user_id)
     {
+        if(Yii::$app->user->identity->user_type===1){   
             return $this->render('view', [
                 'model' => $this->findModel($id, $user_id),
             ]);
+         }else 
+            {
+                Yii::$app->user->logout();
+               throw new ForbiddenHttpException('You must be an Administrator to access this page.');
+            }
     }
 
     /**
