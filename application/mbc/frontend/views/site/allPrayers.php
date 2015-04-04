@@ -23,8 +23,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id',
             [
-                'attribute'=>'user_username',
-                'value'=>'user.username',
+                'attribute'=>'user_id',
+                'value'=>'user.user_name',
             ],
             'prayer_desc',
              [   'attribute'=>'prayer_type', 
