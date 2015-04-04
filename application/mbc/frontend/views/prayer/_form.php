@@ -64,7 +64,7 @@ use dosamigos\datepicker\DatePicker;
         ]
 ]);?>
 
-    <?= $form->field($model, 'user_id')->textInput(['value'=>Yii::$app->user->identity->id,'disabled' => true]) ?>
+    <?= $form->field($model, 'user_id')->textInput(['value'=>Yii::$app->user->identity->id, 'readOnly'=>true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
