@@ -67,13 +67,14 @@ class SignupForm extends Model
                 
                 //permissions
                 $permissionList = $_POST['SignupForm']['permissions'];
-                foreach($permissionList as $value)
-                {
+                //foreach($permissionList as $value)
+                //{
                     $newPermission = new AuthAssignment;
                     $newPermission->user_id = $user->id;
-                    $newPermission->item_name = $value;
+               //     $newPermission->item_name = $value;
+                    $newPermission->item_name = $this->permissions;
                     $newPermission->save();
-                }
+                //}
                 
             }
             return $user;
