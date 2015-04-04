@@ -23,11 +23,6 @@ class EventsController extends Controller
                 'only' => ['index', 'create', 'update', 'delete'],
                 'rules' => [
                     [
-                        'actions' => ['login'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
                         'actions' => ['index', 'create', 'update', 'delete'],
                         'allow' => true,
                         'roles' => ['@'],
