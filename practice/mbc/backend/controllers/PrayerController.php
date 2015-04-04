@@ -3,18 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Tithe;
-use backend\models\TitheSearch;
+use backend\models\Prayer;
+use backend\models\PrayerSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
 
-
 /**
- * TitheController implements the CRUD actions for Tithe model.
+ * PrayerController implements the CRUD actions for Prayer model.
  */
-class TitheController extends Controller
+class PrayerController extends Controller
 {
     public function behaviors()
     {
@@ -29,13 +28,13 @@ class TitheController extends Controller
     }
 
     /**
-     * Lists all Tithe models.
+     * Lists all Prayer models.
      * @return mixed
      */
     public function actionIndex()
     {
         if(Yii::$app->user->identity->user_type===1){
-            $searchModel = new TitheSearch();
+            $searchModel = new PrayerSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
             return $this->render('index', [
@@ -50,27 +49,33 @@ class TitheController extends Controller
     }
 
     /**
-     * Displays a single Tithe model.
+     * Displays a single Prayer model.
      * @param integer $id
      * @param integer $user_id
      * @return mixed
      */
     public function actionView($id, $user_id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id, $user_id),
-        ]);
+        if( 'user_type'=='1'){
+            return $this->render('view', [
+                'model' => $this->findModel($id, $user_id),
+            ]);
+        }else 
+        {
+            Yii::$app->user->logout();
+           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
+        }
     }
 
     /**
-     * Creates a new Tithe model.
+     * Creates a new Prayer model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
         if(Yii::$app->user->identity->user_type===1){
-            $model = new Tithe();
+            $model = new Prayer();
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id, 'user_id' => $model->user_id]);
@@ -87,7 +92,7 @@ class TitheController extends Controller
     }
 
     /**
-     * Updates an existing Tithe model.
+     * Updates an existing Prayer model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @param integer $user_id
@@ -113,7 +118,7 @@ class TitheController extends Controller
     }
 
     /**
-     * Deletes an existing Tithe model.
+     * Deletes an existing Prayer model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @param integer $user_id
@@ -121,28 +126,22 @@ class TitheController extends Controller
      */
     public function actionDelete($id, $user_id)
     {
-        if(Yii::$app->user->identity->user_type===1){
-            $this->findModel($id, $user_id)->delete();
+        $this->findModel($id, $user_id)->delete();
 
-            return $this->redirect(['index']);
-        }else 
-        {
-            Yii::$app->user->logout();
-           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
-        }
+        return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Tithe model based on its primary key value.
+     * Finds the Prayer model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
      * @param integer $user_id
-     * @return Tithe the loaded model
+     * @return Prayer the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id, $user_id)
     {
-        if (($model = Tithe::findOne(['id' => $id, 'user_id' => $user_id])) !== null) {
+        if (($model = Prayer::findOne(['id' => $id, 'user_id' => $user_id])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

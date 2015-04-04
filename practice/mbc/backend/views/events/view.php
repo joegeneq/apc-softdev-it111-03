@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\User */
+/* @var $model backend\models\Events */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Events', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-view">
+<div class="events-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,20 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'username',
-            //'auth_key',
-            //'password_hash',
-            //'password_reset_token',
-            'email:email',
-            //'status',
-            //'created_at',
-            //'updated_at',
-            'user_name',
-            'user_contactno',
-            'user_homeadd',
-            'user_actministry',
-            'user_attendance',
-            'user_type',
+            'events_date',
+            'events_location',
+            'events_prioritylevel',
+            'event_desc',
+            'no_of_attendees',
         ],
     ]) ?>
 

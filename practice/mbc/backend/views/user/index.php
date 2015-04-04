@@ -9,7 +9,8 @@ use yii\grid\GridView;
 
 $this->title = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
-$dataProvider->pagination = ['defaultPageSize' => 10];?>
+$dataProvider->pagination = ['defaultPageSize' => 10];
+?>
 <div class="user-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -39,6 +40,11 @@ $dataProvider->pagination = ['defaultPageSize' => 10];?>
              'user_homeadd',
              'user_actministry',
              'user_attendance',
+             //'user_type',
+            [   'attribute'=>'user_type', 
+                'filter'=> [ '1'=>'Administrator', '2'=>'Member' ], 
+            // Flat array ('id'=>'label') 
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

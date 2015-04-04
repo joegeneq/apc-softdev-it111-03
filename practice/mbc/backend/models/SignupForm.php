@@ -19,6 +19,7 @@ class SignupForm extends Model
     public $user_homeadd;
     public $user_actministry;
     public $user_attendance;
+    public $user_type;
     public $permissions;
 
     /**
@@ -29,6 +30,7 @@ class SignupForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
+            ['user_type', 'required', 'message' => 'Please choose the type of user.'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
@@ -59,22 +61,25 @@ class SignupForm extends Model
             $user->user_homeadd = $this->user_homeadd;
             $user->user_actministry = $this->user_actministry;
             $user->user_attendance = $this->user_attendance;
+            $user->user_type = $this->user_type;
             $user->email = $this->email;
             $user->setPassword($this->password);
             $user->generateAuthKey();
-            if ($user->save()) {
+            $user->save();
+/*            if ($user->save()) {
                 
                 //permissions
                 $permissionList = $_POST['SignupForm']['permissions'];
-                foreach($permissionList as $value)
-                {
+                //foreach($permissionList as $value)
+                //{
                     $newPermission = new AuthAssignment;
                     $newPermission->user_id = $user->id;
-                    $newPermission->item_name = $value;
+               //     $newPermission->item_name = $value;
+                    $newPermission->item_name = $this->permissions;
                     $newPermission->save();
-                }
+                //}
                 
-            }
+            }*/
             return $user;
         }
 

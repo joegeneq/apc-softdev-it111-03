@@ -3,16 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\User;
-use backend\models\UserSearch;
+use backend\models\Events;
+use backend\models\EventsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
+
 /**
- * UserController implements the CRUD actions for User model.
+ * EventsController implements the CRUD actions for Events model.
  */
-class UserController extends Controller
+class EventsController extends Controller
 {
     public function behaviors()
     {
@@ -27,13 +28,13 @@ class UserController extends Controller
     }
 
     /**
-     * Lists all User models.
+     * Lists all Events models.
      * @return mixed
      */
     public function actionIndex()
     {
         if(Yii::$app->user->identity->user_type===1){
-            $searchModel = new UserSearch();
+            $searchModel = new EventsSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
             return $this->render('index', [
@@ -41,14 +42,14 @@ class UserController extends Controller
                 'dataProvider' => $dataProvider,
             ]);
         }else 
-            {
-                Yii::$app->user->logout();
-               throw new ForbiddenHttpException('You must be an Administrator to access this page.');
-            }
+        {
+            Yii::$app->user->logout();
+           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
+        }
     }
 
     /**
-     * Displays a single User model.
+     * Displays a single Events model.
      * @param integer $id
      * @return mixed
      */
@@ -58,40 +59,39 @@ class UserController extends Controller
             return $this->render('view', [
                 'model' => $this->findModel($id),
             ]);
-        }else 
-            {
-                Yii::$app->user->logout();
-               throw new ForbiddenHttpException('You must be an Administrator to access this page.');
-            }
+         }else 
+        {
+            Yii::$app->user->logout();
+           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
+        }
     }
 
     /**
-     * Creates a new User model.
+     * Creates a new Events model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-       /** $model = new User();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }*/
         if(Yii::$app->user->identity->user_type===1){
-            return $this->redirect('index.php?r=site%2Fsignup');
-         }else 
-            {
-                Yii::$app->user->logout();
-               throw new ForbiddenHttpException('You must be an Administrator to access this page.');
+            $model = new Events();
+
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
             }
+         }else 
+        {
+            Yii::$app->user->logout();
+           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
+        }
     }
 
     /**
-     * Updates an existing User model.
+     * Updates an existing Events model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -108,42 +108,37 @@ class UserController extends Controller
                     'model' => $model,
                 ]);
             }
-         }else 
-            {
-                Yii::$app->user->logout();
-               throw new ForbiddenHttpException('You must be an Administrator to access this page.');
-            }
+        }else 
+        {
+            Yii::$app->user->logout();
+           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
+        }
+
     }
 
     /**
-     * Deletes an existing User model.
+     * Deletes an existing Events model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
      */
     public function actionDelete($id)
     {
-        if(Yii::$app->user->identity->user_type===1){
-            $this->findModel($id)->delete();
+        $this->findModel($id)->delete();
 
-            return $this->redirect(['index']);
-        }else 
-            {
-                Yii::$app->user->logout();
-               throw new ForbiddenHttpException('You must be an Administrator to access this page.');
-            }
+        return $this->redirect(['index']);
     }
 
     /**
-     * Finds the User model based on its primary key value.
+     * Finds the Events model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return User the loaded model
+     * @return Events the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = User::findOne($id)) !== null) {
+        if (($model = Events::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

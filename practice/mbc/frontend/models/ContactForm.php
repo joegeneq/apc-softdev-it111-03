@@ -49,11 +49,19 @@ class ContactForm extends Model
      */
     public function sendEmail($email)
     {
+/*        return Yii::$app->mailer->compose()
+            ->setTo([$this->email => $this->name])
+            ->setFrom([\Yii::$app->params['supportEmail'] => 'MBC-RTS Team'])
+            ->setSubject('Muntinlupa Baptist Church - Confirmation')
+            ->setTextBody('Thank you for contacting us!')
+            ->send();*/
         return Yii::$app->mailer->compose()
-            ->setTo($email)
-            ->setFrom([$this->email => $this->name])
+            ->setTo('acgsia@gmail.com')
+           // ->setTo([\Yii::$app->params['supportEmail'] => 'MBC-RTS Team'])
+            ->setFrom([$this->email => $this->email])
             ->setSubject($this->subject)
             ->setTextBody($this->body)
             ->send();
     }
+
 }

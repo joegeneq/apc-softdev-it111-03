@@ -20,7 +20,7 @@ use yii\bootstrap\NavBar;
                 ['label' => 'User', 'url' => ['/user/index']],
                 ['label' => 'Tithe', 'url' => ['/tithe/index']],
                 ['label' => 'Events', 'url' => ['/events/index']],
-                ['label' => 'Prayer Resquests', 'url' => ['/prayerr/index']],
+                ['label' => 'All Prayer Resquests', 'url' => ['/prayer/index']],
             ]],
         ];
         $menuItems[] = [

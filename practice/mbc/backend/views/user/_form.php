@@ -38,6 +38,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'user_attendance')->textInput(['maxlength' => 45]) ?>
 
+     <?= $form->field($model,'user_type')
+                            ->dropDownList(array('1'=>'Administrator','2'=>'Member'))
+                            ->label('User Type: ') ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

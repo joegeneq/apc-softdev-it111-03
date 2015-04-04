@@ -28,10 +28,10 @@ AppAsset::register($this);
             <?php include('navbar.php'); ?>
         </div>
         <div class="container">
-                            <!--<?= Breadcrumbs::widget([
+                            <?= Breadcrumbs::widget([
                                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                             ]) ?>
-                            <?= Alert::widget() ?>-->
+                            <?= Alert::widget() ?>
             <?= $content ?>
         </div>
     </div>

@@ -2,18 +2,18 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
-
+use backend\models\authItem;
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\SignupForm */
 
-$this->title = 'Signup';
+$this->title = 'Add User';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to signup:</p>
+    <p>Please fill out the following fields to add user:</p>
 
     <div class="row">
         <div class="col-lg-5">
@@ -26,12 +26,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'username') ?>
                 <?= $form->field($model, 'email') ?>
                 <?= $form->field($model, 'password')->passwordInput() ?>
-                <?php 
+<!--                 <?php 
                     $authItems = ArrayHelper::map($authItems, 'name','name');
                 ?>
-                <?= $form->field($model, 'permissions') -> checkboxList($authItems); ?>
+                <?= $form->field($model, 'permissions') -> dropDownList($authItems); ?> -->
+
+                   <!--  <?= $form->field($model, 'permissions') -> radioList(
+                        ArrayHelper::map(AuthItem::find()->all(), 'name','name'))?> -->
+                <?= $form->field($model,'user_type')->dropDownList(array('1'=>'Administrator','2'=>'Member'))->label('User Type: ') ?>
+
                 <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    <?= Html::submitButton('Add User', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>
