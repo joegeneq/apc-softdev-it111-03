@@ -31,9 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 ?>
                 <?= $form->field($model, 'permissions') -> dropDownList($authItems); ?> -->
 
-                    <?= $form->field($model, 'permissions') -> radioList(
-                        ArrayHelper::map(AuthItem::find()->all(), 'name','name'))?>
-
+                   <!--  <?= $form->field($model, 'permissions') -> radioList(
+                        ArrayHelper::map(AuthItem::find()->all(), 'name','name'))?> -->
+                <?= $form->field($model,'user_type')->dropDownList(array('1'=>'Administrator','2'=>'Member'))->label('User Type: ') ?>
 
                 <div class="form-group">
                     <?= Html::submitButton('Add User', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
