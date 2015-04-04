@@ -36,7 +36,7 @@ class Prayer extends \yii\db\ActiveRecord
         return [
             [['prayer_code'], 'required'],
             [['prayer_schedule', 'user_id'], 'safe'],
-            [['user_id'], 'integer'],
+         //   [['user_id'], 'integer'],
             [['prayer_desc'], 'string', 'max' => 100],
             [['prayer_type'], 'string', 'max' => 45],
             [['prayer_code'], 'string', 'max' => 10]
@@ -50,7 +50,7 @@ class Prayer extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_username' => 'Name',
+            'user_id' => 'Name',
             'prayer_desc' => 'Prayer Desc',
             'prayer_type' => 'Prayer Type',
             'prayer_code' => 'Prayer Code',
