@@ -48,7 +48,12 @@ $dataProvider->pagination = ['defaultPageSize' => 10];
                     'Travelling'=>'Travelling',
                     'Others'=>'Others' ], 
             ],
-            'prayer_code',
+
+            [   'attribute'=>'prayer_code', 
+                'filter'=> [ 'Public'=>'Public', 'Private'=>'Private' ], 
+            // Flat array ('id'=>'label') 
+            ],
+            // 'prayer_code',
             'prayer_schedule',
             // 'user_id',
 
