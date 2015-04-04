@@ -18,8 +18,8 @@ class PrayerSearch extends Prayer
     public function rules()
     {
         return [
-            [['id', 'user_id'], 'integer'],
-            [['prayer_desc', 'prayer_type', 'prayer_code', 'prayer_schedule'], 'safe'],
+            [['id'], 'integer'],
+            [['prayer_desc', 'prayer_type', 'user_id', 'prayer_code', 'prayer_schedule'], 'safe'],
         ];
     }
 
@@ -55,15 +55,17 @@ class PrayerSearch extends Prayer
             return $dataProvider;
         }
 
+        $query->joinwith('user');
+
         $query->andFilterWhere([
             'id' => $this->id,
             'prayer_schedule' => $this->prayer_schedule,
-            'user_id' => $this->user_id,
         ]);
 
         $query->andFilterWhere(['like', 'prayer_desc', $this->prayer_desc])
             ->andFilterWhere(['like', 'prayer_type', $this->prayer_type])
-            ->andFilterWhere(['like', 'prayer_code', $this->prayer_code]);
+            ->andFilterWhere(['like', 'prayer_code', $this->prayer_code])
+            ->andFilterWhere(['like', 'user_id', $this->user_id]);
 
         return $dataProvider;
     }
