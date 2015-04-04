@@ -9,7 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
-
+use yii\filters\AccessControl;
 
 /**
  * TitheController implements the CRUD actions for Tithe model.
@@ -19,6 +19,16 @@ class TitheController extends Controller
     public function behaviors()
     {
         return [
+         'access' => [
+                'class' => AccessControl::className(),
+                    'rules' => [
+                    [
+                        'actions' => ['index', 'create', 'update', 'delete','view'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -34,7 +44,7 @@ class TitheController extends Controller
      */
     public function actionIndex()
     {
-        if( Yii::$app->user->can( 'admin')){
+        if(Yii::$app->user->identity->user_type===1){
             $searchModel = new TitheSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -45,7 +55,7 @@ class TitheController extends Controller
         }else 
         {
             Yii::$app->user->logout();
-           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
         }
     }
 
@@ -69,7 +79,7 @@ class TitheController extends Controller
      */
     public function actionCreate()
     {
-        if( Yii::$app->user->can( 'admin')){
+        if(Yii::$app->user->identity->user_type===1){
             $model = new Tithe();
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -82,7 +92,7 @@ class TitheController extends Controller
         }else 
         {
             Yii::$app->user->logout();
-           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
         }
     }
 
@@ -95,7 +105,7 @@ class TitheController extends Controller
      */
     public function actionUpdate($id, $user_id)
     {
-        if( Yii::$app->user->can( 'admin')){
+        if(Yii::$app->user->identity->user_type===1){
             $model = $this->findModel($id, $user_id);
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -108,7 +118,7 @@ class TitheController extends Controller
         }else 
         {
             Yii::$app->user->logout();
-           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
         }
     }
 
@@ -121,14 +131,14 @@ class TitheController extends Controller
      */
     public function actionDelete($id, $user_id)
     {
-        if( Yii::$app->user->can( 'admin')){
+        if(Yii::$app->user->identity->user_type===1){
             $this->findModel($id, $user_id)->delete();
 
             return $this->redirect(['index']);
         }else 
         {
             Yii::$app->user->logout();
-           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
         }
     }
 

@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
+use yii\filters\AccessControl;
 /**
  * UserController implements the CRUD actions for User model.
  */
@@ -17,6 +18,16 @@ class UserController extends Controller
     public function behaviors()
     {
         return [
+         'access' => [
+                'class' => AccessControl::className(),
+                    'rules' => [
+                    [
+                        'actions' => ['index', 'create', 'update', 'delete','view'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -32,7 +43,7 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
-        if( Yii::$app->user->can( 'admin')){
+        if(Yii::$app->user->identity->user_type===1){
             $searchModel = new UserSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -43,7 +54,7 @@ class UserController extends Controller
         }else 
             {
                 Yii::$app->user->logout();
-               throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+               throw new ForbiddenHttpException('You must be an Administrator to access this page.');
             }
     }
 
@@ -54,15 +65,9 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
-        if( Yii::$app->user->can( 'admin')){
             return $this->render('view', [
                 'model' => $this->findModel($id),
             ]);
-        }else 
-            {
-                Yii::$app->user->logout();
-               throw new ForbiddenHttpException('You must be a Administrator to access this page.');
-            }
     }
 
     /**
@@ -81,12 +86,12 @@ class UserController extends Controller
                 'model' => $model,
             ]);
         }*/
-        if( Yii::$app->user->can( 'admin')){
+        if(Yii::$app->user->identity->user_type===1){
             return $this->redirect('index.php?r=site%2Fsignup');
          }else 
             {
                 Yii::$app->user->logout();
-               throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+               throw new ForbiddenHttpException('You must be an Administrator to access this page.');
             }
     }
 
@@ -98,7 +103,7 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
-        if( Yii::$app->user->can( 'admin')){
+        if(Yii::$app->user->identity->user_type===1){
             $model = $this->findModel($id);
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -111,7 +116,7 @@ class UserController extends Controller
          }else 
             {
                 Yii::$app->user->logout();
-               throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+               throw new ForbiddenHttpException('You must be an Administrator to access this page.');
             }
     }
 
@@ -123,14 +128,14 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        if( Yii::$app->user->can( 'admin')){
+        if(Yii::$app->user->identity->user_type===1){
             $this->findModel($id)->delete();
 
             return $this->redirect(['index']);
         }else 
             {
                 Yii::$app->user->logout();
-               throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+               throw new ForbiddenHttpException('You must be an Administrator to access this page.');
             }
     }
 

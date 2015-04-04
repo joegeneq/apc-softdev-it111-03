@@ -9,7 +9,7 @@ use yii\filters\VerbFilter;
 use backend\models\SignupForm;
 use yii\web\ForbiddenHttpException;
 use backend\models\AuthItem;
-
+use backend\models\User;
 /**
  * Site controller
  */
@@ -21,20 +21,20 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error', 'signup'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
+        'access' => [
+            'class' => AccessControl::className(),
+            'rules' => [
+                [
+                    'actions' => ['login', 'error', 'signup'],
+                    'allow' => true,
+                ],
+                [
+                    'actions' => ['logout', 'index'],
+                    'allow' => true,
+                    'roles' => ['@'],
                 ],
             ],
+        ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -59,13 +59,13 @@ class SiteController extends Controller
     public function actionIndex()
     {
 
-        if( Yii::$app->user->can( 'admin')){
+        if(Yii::$app->user->identity->user_type===1){
             return $this->render('index');
         }
         else 
         {
             Yii::$app->user->logout();
-           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+           throw new ForbiddenHttpException('You must be an Administrator to access this page.');
         }
     }
 
@@ -94,7 +94,7 @@ class SiteController extends Controller
 
     public function actionSignup()
     {
-     if( Yii::$app->user->can( 'admin')){
+     if(Yii::$app->user->identity->user_type===1){
         $model = new SignupForm();
         $authItems = AuthItem::find()->all();
 
@@ -110,7 +110,7 @@ class SiteController extends Controller
         ]);
         }else 
         {
-           throw new ForbiddenHttpException('You must be a Administrator to access this page.');
+            throw new ForbiddenHttpException('You must be an Administrator to access this page.');
         }
     }
 }
