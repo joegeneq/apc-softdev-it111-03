@@ -15,7 +15,7 @@ use dosamigos\datepicker\DatePicker;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'user_id')->textInput(['value'=>Yii::$app->user->identity->user_name, 'readOnly'=>true]) ?>
+    <?= $form->field($model, 'prayer_desc')->textInput(['maxlength' => 100]) ?>
 
     <?= $form->field($model, 'prayer_type')->textInput(['maxlength' => 45])
     ->dropDownList(
@@ -37,7 +37,7 @@ use dosamigos\datepicker\DatePicker;
                 ], // Flat array ('id'=>'label')
             ['prompt'=>'Select PrayerType']    // options
         );
-    ?>
+ ?>
 
     <?= $form->field($model, 'prayer_code')->textInput(['maxlength' => 10])
     ->dropDownList(
@@ -51,8 +51,6 @@ use dosamigos\datepicker\DatePicker;
         );
         ?>
 
-    <?= $form->field($model, 'prayer_desc')->textArea(['maxlength' => 100]) ?>
-
   <!--   <?= $form->field($model, 'prayer_schedule')->textInput() ?> -->
     <?= $form->field($model, 'prayer_schedule')->widget(
     DatePicker::className(), [
@@ -65,6 +63,8 @@ use dosamigos\datepicker\DatePicker;
             'format' => 'yyyy-mm-dd'
         ]
 ]);?>
+
+    <?= $form->field($model, 'user_id')->textInput(['value'=>Yii::$app->user->identity->user_name, 'readOnly'=>true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
