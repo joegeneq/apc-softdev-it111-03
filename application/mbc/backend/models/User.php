@@ -43,7 +43,7 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             [['username', 'email'], 'required'],
-            [['status', 'created_at', 'updated_at'], 'integer'],
+            [['status', 'created_at', 'updated_at', 'user_type'], 'integer'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['user_name', 'user_contactno', 'user_homeadd', 'user_actministry', 'user_attendance'], 'string', 'max' => 45]
@@ -70,6 +70,7 @@ class User extends \yii\db\ActiveRecord
             'user_homeadd' => 'User Home Address',
             'user_actministry' => 'User Actministry',
             'user_attendance' => 'User Attendance',
+            'user_type' => 'User Type',
         ];
     }
 
