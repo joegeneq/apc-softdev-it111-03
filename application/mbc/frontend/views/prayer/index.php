@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use dosamigos\datepicker\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\PrayerSearch */
@@ -44,7 +45,21 @@ $dataProvider->pagination = ['defaultPageSize' => 10];
                     'Others'=>'Others' ], 
             ],
             'prayer_code',
-            'prayer_schedule',
+            [
+                'attribute' => 'prayer_schedule',
+                'value' => 'prayer_schedule',
+                'options'=> ['class'=>'width-25'],
+                'format' => 'raw',
+                'filter' => DatePicker::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'prayer_schedule',
+                        'clientOptions' => [
+                            'autoclose' => true,
+                            'format' => 'yy-mm-dd',
+                        ]
+                ]),
+            ],
+            // 'prayer_schedule',
             // 'user_id',
 
             ['class' => 'yii\grid\ActionColumn'],
