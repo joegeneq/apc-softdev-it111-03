@@ -60,6 +60,7 @@ use dosamigos\datepicker\DatePicker;
            // 'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
             'clientOptions' => [
                 'autoclose' => true,
+                'startDate' => '+0d',
                 'format' => 'yyyy-mm-dd'
             ]
         ]);?>
